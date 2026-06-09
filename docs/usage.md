@@ -1,6 +1,6 @@
 # LSDetector Usage Guide
 
-This guide describes the intended LSDetector workflow for academic non-commercial use. The old WSL `LSD__APP` README is deprecated and should not be used as the public reference.
+This guide describes the intended LSDetector workflow for academic non-commercial use.
 
 ## 1. Conceptual Workflow
 

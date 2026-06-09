@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+message: "If you use LSDetector, cite the software and the corresponding LSDFormer and/or LSDSAM model paper."
+title: "LSDetector: A Local Workbench for Landslide Detection with LSDFormer and LSDSAM"
+type: software
+authors:
+  - family-names: Fu
+    given-names: Zijin
+version: "0.1.0"
+date-released: "2026-06-09"
+repository-code: "https://github.com/klaus2023/LSDetector"
+license: "LicenseRef-LSDetector-Academic-NonCommercial"
+references:
+  - type: article
+    title: "A CNN-Transformer Hybrid Network for Efficient Cross-Region Landslide Detection by Transfer Learning"
+    authors:
+      - family-names: Fu
+        given-names: Zijin
+      - family-names: Wang
+        given-names: Fawu
+      - family-names: Zhong
+        given-names: Junfei
+      - family-names: Catani
+        given-names: Filippo
+      - family-names: Dou
+        given-names: Jie
+      - family-names: You
+        given-names: Qi
+      - family-names: Zhang
+        given-names: Bo
+    journal: "Landslides"
+    year: 2026
+    doi: "10.1007/s10346-026-02733-w"
+  - type: article
+    title: "LSDSAM: Harnessing Visual Foundation Model and Enhanced Transfer Learning Towards Practical Landslide Detection in Few-shot Scenarios"
+    authors:
+      - family-names: Fu
+        given-names: Zijin
+      - family-names: Wang
+        given-names: Fawu
+      - family-names: Tu
+        given-names: Zihan
+      - family-names: Peng
+        given-names: Xingliang
+      - family-names: Liu
+        given-names: Guanting
+      - family-names: Catani
+        given-names: Filippo
+    journal: "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing"
+    year: 2026
+    url: "https://ieeexplore.ieee.org/abstract/document/11456795/"

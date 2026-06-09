@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LSDetector</title>
+  <meta name="description" content="LSDetector: implementation and deployment workbench for LSDFormer and LSDSAM landslide detection models.">
+  <style>
+    :root { --ink: #172126; --muted: #5c6b73; --line: #d8e1e4; --surface: #f6f8f7; --paper: #ffffff; --green: #2f6f5e; --teal: #197a83; --red: #9d3b3b; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: var(--paper); }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header { border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #f2f7f5 0%, #ffffff 100%); }
+    nav { max-width: 1180px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    nav strong { font-size: 1.05rem; letter-spacing: .02em; }
+    nav .links { display: flex; gap: 16px; flex-wrap: wrap; font-size: .94rem; }
+    .hero { max-width: 1180px; margin: 0 auto; padding: 64px 24px 44px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); gap: 42px; align-items: center; }
+    .hero h1 { margin: 0; font-size: clamp(2.3rem, 6vw, 4.5rem); line-height: 1.04; letter-spacing: 0; }
+    .hero p { margin: 20px 0 0; color: var(--muted); font-size: 1.1rem; max-width: 68ch; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 16px; border: 1px solid var(--green); background: var(--green); color: white; border-radius: 6px; font-weight: 650; }
+    .button.secondary { background: transparent; color: var(--green); }
+    .figure-frame { border: 1px solid var(--line); border-radius: 8px; background: white; padding: 10px; box-shadow: 0 14px 36px rgba(23,33,38,.08); }
+    .figure-frame img { display: block; width: 100%; height: auto; border-radius: 4px; }
+    main section { border-top: 1px solid var(--line); }
+    .section-inner { max-width: 1180px; margin: 0 auto; padding: 48px 24px; }
+    h2 { margin: 0 0 18px; font-size: 2rem; line-height: 1.2; }
+    h3 { margin: 0 0 10px; font-size: 1.2rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .card { border: 1px solid var(--line); border-radius: 8px; padding: 18px; background: var(--paper); }
+    .card p { margin: 0; color: var(--muted); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; min-width: 820px; background: white; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--surface); font-size: .9rem; }
+    tr:last-child td { border-bottom: 0; }
+    .notice { border-left: 4px solid var(--red); background: #fff7f6; padding: 16px 18px; border-radius: 6px; color: #532323; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    footer { border-top: 1px solid var(--line); color: var(--muted); }
+    footer .section-inner { padding: 26px 24px; }
+    @media (max-width: 860px) { .hero, .split, .grid { grid-template-columns: 1fr; } nav { align-items: flex-start; flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <strong>LSDetector</strong>
+      <div class="links">
+        <a href="../README.md">README</a><a href="usage.md">Usage</a><a href="models.md">Models</a><a href="wuping_case.md">Wuping Case</a><a href="../LICENSE-NC.md">License</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div>
+        <h1>Practical landslide detection with LSDFormer and LSDSAM.</h1>
+        <p>LSDetector is the academic non-commercial implementation and deployment workbench for CNN-Transformer and foundation-model landslide detection, prepared for the ISGDR software link.</p>
+        <div class="actions"><a class="button" href="usage.md">Open Usage Guide</a><a class="button secondary" href="models.md">View Models</a></div>
+      </div>
+      <div class="figure-frame"><img src="assets/figures/lsdetector-architecture.svg" alt="LSDetector software architecture"></div>
+    </div>
+  </header>
+  <main>
+    <section><div class="section-inner"><h2>Implementation of Two SCI Model Families</h2><div class="grid"><article class="card"><h3>LSDFormer</h3><p>Compact CNN-Transformer model for efficient cross-region landslide detection and fast deployment.</p></article><article class="card"><h3>LSDSAM</h3><p>SAM-based landslide detector with task-specific and CNN branches for few-shot practical mapping.</p></article><article class="card"><h3>TAFT-DAFT-TSFT</h3><p>Three-stage transfer learning from landslide prior knowledge to target-area adaptation and local calibration.</p></article></div></div></section>
+    <section><div class="section-inner"><h2>Registered Model Complexity</h2><div class="table-wrap"><table><thead><tr><th>Model</th><th>Input</th><th>Total params</th><th>Trainable params</th><th>FLOPs</th><th>Use case</th></tr></thead><tbody><tr><td>LSDFormer</td><td>256 x 256</td><td>37.7M</td><td>7.9M</td><td>19.6G</td><td>Lightweight deployment</td></tr><tr><td>LSDSAM-B</td><td>512 x 512</td><td>110.1M</td><td>13.5M</td><td>261.6G</td><td>Balanced foundation model</td></tr><tr><td>LSDSAM-L</td><td>512 x 512</td><td>339.5M</td><td>17.4M</td><td>840.3G</td><td>High-capacity deployment</td></tr><tr><td>LSDSAM-H</td><td>512 x 512</td><td>680.9M</td><td>21.6M</td><td>1704.4G</td><td>Highest-capacity Wuping case model</td></tr></tbody></table></div></div></section>
+    <section><div class="section-inner split"><div><h2>Wuping Deployment</h2><p>In the ISGDR demonstration, LSDSAM-H supported two AI-assisted refinement rounds and full-area inference over PlanetScope imagery covering 17,295 km2, producing 40,400 candidate landslide polygons for expert review.</p><p>This page intentionally does not display the ISGDR precision-evaluation tables; it highlights the software workflow and regional mapping product.</p></div><div class="figure-frame"><img src="assets/figures/wuping-deployment.svg" alt="Wuping deployment result"></div></div></section>
+    <section><div class="section-inner"><div class="notice"><strong>Academic non-commercial use only.</strong> Publications or derivative research outputs using LSDetector, LSDFormer, LSDSAM, their weights, or generated products must cite the corresponding SCI model paper.</div></div></section>
+  </main>
+  <footer><div class="section-inner">Supported by the National Science Foundation of China, Grant No. 42230715 and W2511039.</div></footer>
+</body>
+</html>

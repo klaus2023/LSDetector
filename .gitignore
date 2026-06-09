@@ -1,0 +1,60 @@
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local Codex/editor workspaces and backups
+.codex/
+.codex-*/
+.codex_*/
+.tmp_ppt_notes/
+
+# Generated outputs and temporary work
+out/
+output/
+outputs/
+tmp/
+build/
+dist/
+*.tmp
+
+# Heavy local research/data artifacts
+TSFT2/
+Codex/
+latex-paper-starter/build/
+latex-paper-starter/tmp-preview/
+*.zip
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.gpkg
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+
+# Secrets and credentials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.p8
+id_rsa*
+id_ed25519*

@@ -246,46 +246,16 @@ LSDetector outputs are candidate landslide products and must be checked by quali
 
 ## 10. Citation Requirement
 
-If you use LSDetector, LSDFormer, LSDSAM, model weights, software outputs, or derived landslide products in a paper, thesis, report, benchmark, conference abstract, or other research output, you must cite the relevant papers.
+If you use LSDetector, LSDFormer, LSDSAM, model weights, software outputs, or derived landslide products in a paper, thesis, report, benchmark, conference abstract, or other research output, you must cite the software platform and the corresponding model paper(s).
 
-Use the LSDetector citation when referring to the software platform:
+**LSDetector software / ISGDR conference paper**
 
-```bibtex
-@inproceedings{fuLSDetector2026,
-  title = {LSDetector: An Open-Source Tool Bridging Landslide Detection Models and Real-World Deployment through Three-Stage Transfer Learning},
-  author = {Fu, Zijin and Meena, Sansar Raj and Catani, Filippo and Luo, Senlin and Wang, Fawu},
-  booktitle = {1st World Congress of ICGdR / ISGDR},
-  address = {Hong Kong, China},
-  year = {2026},
-  note = {9-12 August 2026}
-}
-```
+Fu, Z., Meena, S. R., Catani, F., Luo, S., & Wang, F. (2026, August 9-12). *LSDetector: An open-source tool bridging landslide detection models and real-world deployment through three-stage transfer learning* [Conference paper]. 1st World Congress of ICGdR / ISGDR, Hong Kong, China.
 
-Use the LSDFormer citation when using LSDFormer or its weights:
+**LSDFormer**
 
-> Fu, Z., Wang, F., Zhong, J., Catani, F., Dou, J., You, Q., & Zhang, B. (2026). **A CNN–Transformer hybrid network for efficient cross-region landslide detection by transfer learning**. *Landslides*, 1-17.
+Fu, Z., Wang, F., Zhong, J., Catani, F., Dou, J., You, Q., & Zhang, B. (2026). A CNN–Transformer hybrid network for efficient cross-region landslide detection by transfer learning. *Landslides*, 1-17. https://doi.org/10.1007/s10346-026-02733-w
 
-```bibtex
-@article{fuCNNTransformerHybrid2026,
-  title = {A {CNN--Transformer} hybrid network for efficient cross-region landslide detection by transfer learning},
-  author = {Fu, Zijin and Wang, Fawu and Zhong, Junfei and Catani, Filippo and Dou, Jie and You, Qi and Zhang, Bo},
-  journal = {Landslides},
-  pages = {1--17},
-  year = {2026},
-  doi = {10.1007/s10346-026-02733-w}
-}
-```
+**LSDSAM**
 
-Use the LSDSAM citation when using LSDSAM-B, LSDSAM-L, LSDSAM-H, SAM-derived adapters, or the three-stage LSDSAM transfer-learning framework:
-
-> Fu, Z., Wang, F., Tu, Z., Peng, X., Liu, G., & Catani, F. (2026). **LSDSAM: Harnessing Visual Foundation Model and Enhanced Transfer Learning Towards Practical Landslide Detection in Few-shot Scenarios**. *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*.
-
-```bibtex
-@article{fuLSDSAMHarnessingVisual2026,
-  title = {{LSDSAM}: Harnessing Visual Foundation Model and Enhanced Transfer Learning Towards Practical Landslide Detection in Few-shot Scenarios},
-  author = {Fu, Zijin and Wang, Fawu and Tu, Zihan and Peng, Xingliang and Liu, Guanting and Catani, Filippo},
-  journal = {IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing},
-  year = {2026},
-  doi = {10.1109/JSTARS.2026.3678141}
-}
-```
+Fu, Z., Wang, F., Tu, Z., Peng, X., Liu, G., & Catani, F. (2026). LSDSAM: Harnessing visual foundation model and enhanced transfer learning toward practical landslide detection in few-shot scenarios. *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 19*, 12344-12364. https://doi.org/10.1109/JSTARS.2026.3678141

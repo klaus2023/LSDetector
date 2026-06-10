@@ -59,6 +59,8 @@ Figure source: **LSDetector conference paper, Fig. 1, Architecture of LSDetector
 
 The following table is copied from the LSDetector conference paper model complexity analysis table.
 
+The benchmark was conducted on an **NVIDIA GeForce RTX 5090** using **PlanetScope satellite imagery from the Wuping, China study area** at **3 m spatial resolution**. Deployment speed was evaluated with an overlapped sliding-window inference strategy using a **256 x 256 patch size** and a **128-pixel stride**.
+
 | Model | Input | Total params (M) | Trainable params (M) | FLOPs (G) | Training GPU memory (GB) | Inference speed (FPS) | Deployment speed (km2/s) |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | LSDFormer | 256 x 256 | 37.7 | 7.9 | 19.6 | 1.0-2.9 | 46.4 | 4.8 |

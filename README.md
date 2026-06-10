@@ -8,7 +8,7 @@
 
 ## 1. Related Papers
 
-<p align="justify">This repository is associated with the LSDetector conference software description and two peer-reviewed model papers: one convolutional neural network (CNN)-Transformer model and one foundation-model-based landslide detection model.</p>
+<p align="justify">This repository is associated with the LSDetector conference software description and two peer-reviewed model papers: one CNN-Transformer model and one foundation-model-based landslide detection model.</p>
 
 ### 1.1 LSDetector conference software paper
 
@@ -43,30 +43,80 @@ The software integrates:
 - **Inference and vectorization** for probability rasters, binary masks, and landslide polygons;
 - **GIS-compatible export** for review and correction in ArcGIS, ArcGIS Pro, or QGIS.
 
-<p align="justify">For large-scale landslide mapping, LSDetector follows an iterative AI-assisted refinement strategy. Users first register target imagery and available few-shot or locally corrected labels, then select LSDFormer or LSDSAM weights for sliding-window inference over the mapping area. The software exports probability rasters, binary masks, and candidate landslide polygons for GIS review. Corrected polygons are registered back as TSFT samples, allowing the model to be refined and re-applied to progressively larger or non-contiguous areas. This loop supports efficient construction of reviewable regional landslide inventories while reducing fully manual interpretation.</p>
-
-![Wuping AI-assisted refinement workflow](docs/assets/figures/refinement.jpg)
-
-Figure source: **LSDetector conference paper, AI-assisted refinement workflow for large-area Wuping deployment.**
-
 <p align="justify">The software architecture figure below summarizes the LSDetector workbench and its registry-centered deployment design.</p>
 
 ![Original LSDetector software architecture figure from the ISGDR paper](docs/assets/figures/software_architecture.jpg)
 
 Figure source: **LSDetector conference paper, Fig. 1, Architecture of LSDetector.**
 
+<p align="justify">For large-scale landslide mapping, LSDetector follows an iterative AI-assisted refinement strategy. Users first register target imagery and available few-shot or locally corrected labels, then select LSDFormer or LSDSAM weights for sliding-window inference over the mapping area. The software exports probability rasters, binary masks, and candidate landslide polygons for GIS review. Corrected polygons are registered back as TSFT samples, allowing the model to be refined and re-applied to progressively larger or non-contiguous areas. This loop supports efficient construction of reviewable regional landslide inventories while reducing fully manual interpretation.</p>
+
+![Wuping AI-assisted refinement workflow](docs/assets/figures/refinement.jpg)
+
+Figure source: **LSDetector conference paper, AI-assisted refinement workflow for large-area Wuping deployment.**
+
 ## 3. Model Zoo
 
 <p align="justify">The model complexity and deployment benchmark are summarized below.</p>
 
-<p align="justify">The benchmark was conducted on an <strong>NVIDIA GeForce RTX 5090 graphics processing unit (GPU)</strong> using <strong>PlanetScope satellite imagery from the Wuping, China study area</strong> at <strong>3 m spatial resolution</strong>. The table reports floating-point operations (FLOPs), GPU memory in gigabytes (GB), inference speed in frames per second (FPS), and regional deployment speed. Deployment speed was evaluated with an overlapped sliding-window inference strategy using a <strong>256 x 256 patch size</strong> and a <strong>128-pixel stride</strong>.</p>
+<p align="justify">The benchmark was conducted on an <strong>NVIDIA GeForce RTX 5090 graphics processing unit (GPU)</strong> using <strong>PlanetScope satellite imagery from the Wuping, China study area</strong> at <strong>3 m spatial resolution</strong>. The table reports floating-point operations (FLOPs), GPU memory in gigabytes (GB), inference speed in frames per second (FPS), and regional deployment speed. Training GPU memory is reported as the observed range for batch sizes 1-4. Deployment speed was evaluated with an overlapped sliding-window inference strategy using a <strong>256 x 256 patch size</strong> and a <strong>128-pixel stride</strong>.</p>
 
-| Model | Input | Total params (M) | Trainable params (M) | FLOPs (G) | Training GPU memory (GB) | Inference speed (FPS) | Deployment speed (km2/s) |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| LSDFormer | 256 x 256 | 37.7 | 7.9 | 19.6 | 1.0-2.9 | 46.4 | 4.8 |
-| LSDSAM-B | 512 x 512 | 110.1 | 13.5 | 261.6 | 2.6-8.4 | 26.1 | 2.9 |
-| LSDSAM-L | 512 x 512 | 339.5 | 17.4 | 840.3 | 5.3-16.3 | 18.6 | 2.1 |
-| LSDSAM-H | 512 x 512 | 680.9 | 21.6 | 1704.4 | 8.4-25.0 | 11.2 | 1.6 |
+<table>
+  <thead>
+    <tr>
+      <th align="left">Model</th>
+      <th align="center">Input</th>
+      <th align="right">Params (M)</th>
+      <th align="right">Trainable (M)</th>
+      <th align="right">FLOPs (G)</th>
+      <th align="right">GPU mem. (GB)</th>
+      <th align="right">Infer. FPS</th>
+      <th align="right">Deploy (km2/s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LSDFormer</td>
+      <td align="center">256&nbsp;x&nbsp;256</td>
+      <td align="right">37.7</td>
+      <td align="right">7.9</td>
+      <td align="right">19.6</td>
+      <td align="right">1.0-2.9</td>
+      <td align="right">46.4</td>
+      <td align="right">4.8</td>
+    </tr>
+    <tr>
+      <td>LSDSAM&#8209;B</td>
+      <td align="center">512&nbsp;x&nbsp;512</td>
+      <td align="right">110.1</td>
+      <td align="right">13.5</td>
+      <td align="right">261.6</td>
+      <td align="right">2.6-8.4</td>
+      <td align="right">26.1</td>
+      <td align="right">2.9</td>
+    </tr>
+    <tr>
+      <td>LSDSAM&#8209;L</td>
+      <td align="center">512&nbsp;x&nbsp;512</td>
+      <td align="right">339.5</td>
+      <td align="right">17.4</td>
+      <td align="right">840.3</td>
+      <td align="right">5.3-16.3</td>
+      <td align="right">18.6</td>
+      <td align="right">2.1</td>
+    </tr>
+    <tr>
+      <td>LSDSAM&#8209;H</td>
+      <td align="center">512&nbsp;x&nbsp;512</td>
+      <td align="right">680.9</td>
+      <td align="right">21.6</td>
+      <td align="right">1704.4</td>
+      <td align="right">8.4-25.0</td>
+      <td align="right">11.2</td>
+      <td align="right">1.6</td>
+    </tr>
+  </tbody>
+</table>
 
 <p align="justify">In LSDetector, <strong>LSDFormer</strong> is the lightest and fastest deployment option, while <strong>LSDSAM-H</strong> provides the highest-capacity model and was used for the Wuping large-area deployment demonstration.</p>
 

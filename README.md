@@ -6,8 +6,6 @@ LSDetector is a scientific landslide-detection workbench prepared for the **1st 
 
 > **Important:** LSDetector is provided only for scientific research, academic education, conference demonstration, and non-commercial applications. Commercial use is prohibited without written permission from the authors.
 
-> **Figure asset note:** This README is written to use the **original figures from the related papers**. Before final public release, place the original figure files at the paths referenced below, or update the paths while keeping the same figure sources.
-
 ## 1. Related Papers
 
 This repository is associated with three related papers.
@@ -63,7 +61,7 @@ The software integrates:
 
 Original software architecture figure from the LSDetector conference paper:
 
-![Original LSDetector software architecture figure from the ISGDR paper](assets/figures/lsdetector_fig1_architecture_original.jpg)
+![Original LSDetector software architecture figure from the ISGDR paper](docs/assets/figures/software_architecture.jpg)
 
 Suggested source: **LSDetector conference paper, Fig. 1, Architecture of LSDetector.**
 
@@ -96,7 +94,7 @@ Key characteristics:
 
 Original architecture figure from the LSDFormer paper:
 
-![Original LSDFormer architecture figure](assets/figures/lsdformer_fig2_architecture_original.jpg)
+![Original LSDFormer architecture figure](docs/assets/figures/LSDFormer_architecture.jpg)
 
 Suggested source: **LSDFormer paper, Fig. 2, Model architecture of LSDFormer.**
 
@@ -115,7 +113,7 @@ Key characteristics:
 
 Original architecture figure from the LSDSAM paper:
 
-![Original LSDSAM architecture figure](assets/figures/lsdsam_fig2_architecture_original.jpg)
+![Original LSDSAM architecture figure](docs/assets/figures/LSDSAM_architecture.jpg)
 
 Suggested source: **LSDSAM paper, Fig. 2, Model architecture of the proposed LSDSAM.**
 
@@ -129,9 +127,7 @@ LSDetector operationalizes the transfer-learning strategy derived from LSDSAM an
 | DAFT | Domain-adversarial fine-tuning | Reduce domain bias caused by sensor, resolution, illumination, land cover, and geomorphic differences | Optional target-domain adaptation using target imagery |
 | TSFT | Target-specific fine-tuning | Calibrate the model with local labels or corrected outputs | Final few-shot refinement before deployment |
 
-Original transfer-learning figure from the LSDSAM paper:
-
-![Original LSDSAM three-step transfer-learning figure](assets/figures/lsdsam_fig6_three_step_tl_original.jpg)
+The original LSDSAM three-step transfer-learning figure can be added when the source image file is available.
 
 Suggested source: **LSDSAM paper, Fig. 6, Four training paradigms for LSD and illustration of the proposed DAFT.**
 
@@ -143,7 +139,7 @@ LSDetector is intended to convert model research into reviewable regional mappin
 
 The LSDFormer paper compares LSDFormer with other SOTA models on RLZX and ELNT. The visualization demonstrates the cross-region transfer behavior and the ability of LSDFormer to reduce missed detections and boundary errors under limited target-domain data.
 
-![Original LSDFormer SOTA comparison figure](assets/figures/lsdformer_fig6_sota_comparison_original.jpg)
+![Original LSDFormer SOTA comparison figure](docs/assets/figures/LSDformer_10pct.jpg)
 
 Suggested source: **LSDFormer paper, Fig. 6, Visualization results of LSDFormer and different SOTA models on RLZX and ELNT with DU of 10%.**
 
@@ -151,11 +147,11 @@ Suggested source: **LSDFormer paper, Fig. 6, Visualization results of LSDFormer 
 
 The LSDSAM paper compares LSDSAM with SOTA methods under few-shot and higher-data settings across four testing datasets. These figures highlight the practical few-shot advantage of LSDSAM and its boundary delineation ability.
 
-![Original LSDSAM 8-shot SOTA comparison figure](assets/figures/lsdsam_fig7_sota_8shot_original.jpg)
+![Original LSDSAM 8-shot SOTA comparison figure](docs/assets/figures/LSDSAM_8shot.jpg)
 
 Suggested source: **LSDSAM paper, Fig. 7, Visual comparison of detection results between LSDSAM and other SOTA methods with DU set to 8-shot.**
 
-![Original LSDSAM 30-percent SOTA comparison figure](assets/figures/lsdsam_fig8_sota_30du_original.jpg)
+The LSDSAM 30-percent SOTA comparison figure can be added when the original image file is available.
 
 Suggested source: **LSDSAM paper, Fig. 8, Visual comparison of detection results between LSDSAM and other SOTA methods with DU set to 30%.**
 
@@ -163,7 +159,9 @@ Suggested source: **LSDSAM paper, Fig. 8, Visual comparison of detection results
 
 In the LSDetector conference paper, LSDSAM-H was applied to the Wuping rainfall-triggered landslide area. The final deployment covered **17,295 km2** of PlanetScope imagery and produced **40,400 candidate landslide polygons** after two rounds of AI-assisted refinement.
 
-![Original Wuping deployment figure from the LSDetector conference paper](assets/figures/lsdetector_fig4_wuping_deployment_original.jpg)
+![Original Wuping deployment figure from the LSDetector conference paper](docs/assets/figures/deploy_wuping.png)
+
+![Wuping AI-assisted refinement workflow](docs/assets/figures/refinement.jpg)
 
 Suggested source: **LSDetector conference paper, Fig. 4, Practical deployment of LSDSAM-H in the Wuping area through iterative AI-assisted refinement.**
 

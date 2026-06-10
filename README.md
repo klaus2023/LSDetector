@@ -252,7 +252,7 @@ python -m lsd_app.cli.main --help
 1. **Register models** in the Model Repository: choose LSDFormer, LSDSAM-B, LSDSAM-L, or LSDSAM-H.
 2. **Register weights** in the Weight Repository: TAFT, DAFT, TSFT, or inference-ready checkpoints.
 3. **Register datasets** in the Dataset Repository: source-domain data, target-domain imagery, TSFT labels, or evaluation datasets.
-4. **Run DAFT** when target-domain imagery differs from the source domain and domain adaptation is needed.
+4. **Run DAFT** first in extreme few-shot scenarios to improve model performance before local fine-tuning.
 5. **Run TSFT** when local annotations or corrected model outputs are available.
 6. **Run inference** on target GeoTIFF imagery to generate probability rasters, binary masks, and vectorized landslide polygons.
 7. **Review in GIS** using ArcGIS, ArcGIS Pro, QGIS, or equivalent software.

@@ -115,19 +115,19 @@ LSDetector operationalizes the transfer-learning strategy derived from LSDSAM an
 
 Before target-area adaptation, LSDetector uses **Landslide77K** as the source-domain dataset for task-adaptive fine-tuning. According to the LSDetector conference paper, Landslide77K contains **more than 77,000 image-mask samples** assembled from multiple public or published landslide datasets. It covers diverse regions, sensors, spatial resolutions, landslide types, and triggering conditions, providing landslide-specific prior knowledge before DAFT and TSFT are applied to a new mapping area.
 
-Landslide77K integrates the following source datasets and reference sources:
+Landslide77K integrates the following source datasets and full APA references:
 
-| Source dataset | Reference source |
+| Source dataset | APA reference |
 |---|---|
-| LMHLD | Liu et al. (2025), *LMHLD: A Large-Scale Multisource High-Resolution Landslide Dataset for Landslide Detection Based on Deep Learning* |
-| CAS Landslide Dataset | Xu et al. (2024), *CAS Landslide Dataset: A Large-Scale and Multisensor Dataset for Deep Learning-Based Landslide Detection* |
-| GDCLD | Fang et al. (2024), *A Globally Distributed Dataset of Coseismic Landslide Mapping via Multi-Source High-Resolution Remote Sensing Images* |
-| HR-GLDD | Meena et al. (2023), *HR-GLDD: A Globally Distributed Dataset Using Generalized Deep Learning for Rapid Landslide Mapping on High-Resolution Satellite Imagery* |
-| GVLM | Zhang et al. (2023), *Cross-Domain Landslide Mapping from Large-Scale Remote Sensing Images Using Prototype-Guided Domain-Aware Progressive Representation Learning* |
-| Landslide4Sense | Ghorbanzadeh et al. (2022), *Landslide4Sense: Reference Benchmark Data and Deep Learning Models for Landslide Detection* |
-| Bijie dataset | Ji et al. (2020), *Landslide Detection from an Open Satellite Imagery and Digital Elevation Model Dataset Using Attention Boosted Convolutional Neural Networks* |
-| RLZX dataset | Fu et al. (2025), *Records of Shallow Landslides Triggered by Extreme Rainfall in July 2024 in Zixing, China* |
-| ELNT dataset | Fu et al. (2026b), *A CNN-Transformer Hybrid Network for Efficient Cross-Region Landslide Detection by Transfer Learning* |
+| LMHLD | Liu, G., Wang, Y., Chen, X., Du, B., Li, P., Wu, Y., Fang, Z., & Ma, P. (2025). LMHLD: A large-scale multisource high-resolution landslide dataset for landslide detection based on deep learning. *IEEE Transactions on Geoscience and Remote Sensing, 63*, Article 5648415. https://doi.org/10.1109/TGRS.2025.3619062 |
+| CAS Landslide Dataset | Xu, Y., Ouyang, C., Xu, Q., Wang, D., Zhao, B., & Luo, Y. (2024). CAS Landslide Dataset: A large-scale and multisensor dataset for deep learning-based landslide detection. *Scientific Data, 11*, Article 12. https://doi.org/10.1038/s41597-023-02847-z |
+| GDCLD | Fang, C., Fan, X., Wang, X., Nava, L., Zhong, H., Dong, X., Qi, J., & Catani, F. (2024). A globally distributed dataset of coseismic landslide mapping via multi-source high-resolution remote sensing images. *Earth System Science Data, 16*, 4817-4842. https://doi.org/10.5194/essd-16-4817-2024 |
+| HR-GLDD | Meena, S. R., Nava, L., Bhuyan, K., Puliero, S., Soares, L. P., Dias, H. C., Floris, M., & Catani, F. (2023). HR-GLDD: A globally distributed dataset using generalized deep learning (DL) for rapid landslide mapping on high-resolution (HR) satellite imagery. *Earth System Science Data, 15*(7), 3283-3298. https://doi.org/10.5194/essd-15-3283-2023 |
+| GVLM | Zhang, X., Yu, W., Pun, M.-O., & Shi, W. (2023). Cross-domain landslide mapping from large-scale remote sensing images using prototype-guided domain-aware progressive representation learning. *ISPRS Journal of Photogrammetry and Remote Sensing, 197*, 1-17. https://doi.org/10.1016/j.isprsjprs.2023.01.018 |
+| Landslide4Sense | Ghorbanzadeh, O., Xu, Y., Ghamisi, P., Kopp, M., & Kreil, D. (2022). Landslide4Sense: Reference benchmark data and deep learning models for landslide detection. *IEEE Transactions on Geoscience and Remote Sensing, 60*, 1-17. https://doi.org/10.1109/TGRS.2022.3215209 |
+| Bijie dataset | Ji, S., Yu, D., Shen, C., Li, W., & Xu, Q. (2020). Landslide detection from an open satellite imagery and digital elevation model dataset using attention boosted convolutional neural networks. *Landslides, 17*(6), 1337-1352. https://doi.org/10.1007/s10346-020-01353-2 |
+| RLZX dataset | Fu, Z., Wang, F., Ma, H., You, Q., & Feng, Y. (2025). Records of shallow landslides triggered by extreme rainfall in July 2024 in Zixing, China. *Scientific Data, 12*, Article 1364. https://doi.org/10.1038/s41597-025-05670-w |
+| ELNT dataset | Fu, Z., Wang, F., Zhong, J., Catani, F., Dou, J., You, Q., & Zhang, B. (2026). A CNN-Transformer hybrid network for efficient cross-region landslide detection by transfer learning. *Landslides*, 1-17. https://doi.org/10.1007/s10346-026-02733-w |
 
 | Stage | Full name | Main purpose | Role in LSDetector |
 |---|---|---|---|

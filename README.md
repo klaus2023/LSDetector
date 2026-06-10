@@ -49,6 +49,12 @@ The software integrates:
 - **Inference and vectorization** for probability rasters, binary masks, and landslide polygons;
 - **GIS-compatible export** for review and correction in ArcGIS, ArcGIS Pro, or QGIS.
 
+For large-scale landslide mapping, LSDetector follows an iterative AI-assisted refinement strategy. Users first register target imagery and available few-shot or locally corrected labels, then select LSDFormer or LSDSAM weights for sliding-window inference over the mapping area. The software exports probability rasters, binary masks, and candidate landslide polygons for GIS review. Corrected polygons are registered back as TSFT samples, allowing the model to be refined and re-applied to progressively larger or non-contiguous areas. This loop supports efficient construction of reviewable regional landslide inventories while reducing fully manual interpretation.
+
+![Wuping AI-assisted refinement workflow](docs/assets/figures/refinement.jpg)
+
+Figure source: **LSDetector conference paper, AI-assisted refinement workflow for large-area Wuping deployment.**
+
 Original software architecture figure from the LSDetector conference paper:
 
 ![Original LSDetector software architecture figure from the ISGDR paper](docs/assets/figures/software_architecture.jpg)
@@ -168,8 +174,6 @@ Figure source: **LSDSAM paper, Fig. 8, Visual comparison of detection results be
 In the LSDetector conference paper, LSDSAM-H was applied to the Wuping rainfall-triggered landslide area. The final deployment covered **17,295 km2** of PlanetScope imagery and produced **40,400 candidate landslide polygons** after two rounds of AI-assisted refinement.
 
 ![Original Wuping deployment figure from the LSDetector conference paper](docs/assets/figures/deploy_wuping.png)
-
-![Wuping AI-assisted refinement workflow](docs/assets/figures/refinement.jpg)
 
 Figure source: **LSDetector conference paper, Fig. 4, Practical deployment of LSDSAM-H in the Wuping area through iterative AI-assisted refinement.**
 

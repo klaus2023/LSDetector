@@ -53,7 +53,7 @@ Original software architecture figure from the LSDetector conference paper:
 
 ![Original LSDetector software architecture figure from the ISGDR paper](docs/assets/figures/software_architecture.jpg)
 
-Suggested source: **LSDetector conference paper, Fig. 1, Architecture of LSDetector.**
+Figure source: **LSDetector conference paper, Fig. 1, Architecture of LSDetector.**
 
 ## 3. Model Zoo
 
@@ -86,7 +86,7 @@ Original architecture figure from the LSDFormer paper:
 
 ![Original LSDFormer architecture figure](docs/assets/figures/LSDFormer_architecture.jpg)
 
-Suggested source: **LSDFormer paper, Fig. 2, Model architecture of LSDFormer.**
+Figure source: **LSDFormer paper, Fig. 2, Model architecture of LSDFormer.**
 
 ### 4.2 LSDSAM
 
@@ -105,11 +105,27 @@ Original architecture figure from the LSDSAM paper:
 
 ![Original LSDSAM architecture figure](docs/assets/figures/LSDSAM_architecture.jpg)
 
-Suggested source: **LSDSAM paper, Fig. 2, Model architecture of the proposed LSDSAM.**
+Figure source: **LSDSAM paper, Fig. 2, Model architecture of the proposed LSDSAM.**
 
 ## 5. Three-Stage Transfer Learning
 
 LSDetector operationalizes the transfer-learning strategy derived from LSDSAM and generalizes it as a deployment workflow for both LSDFormer and LSDSAM model families.
+
+Before target-area adaptation, LSDetector uses **Landslide77K** as the source-domain dataset for task-adaptive fine-tuning. According to the LSDetector conference paper, Landslide77K contains **more than 77,000 image-mask samples** assembled from multiple public or published landslide datasets. It covers diverse regions, sensors, spatial resolutions, landslide types, and triggering conditions, providing landslide-specific prior knowledge before DAFT and TSFT are applied to a new mapping area.
+
+Landslide77K integrates the following source datasets and reference sources:
+
+| Source dataset | Reference source |
+|---|---|
+| LMHLD | Liu et al. (2025), *LMHLD: A Large-Scale Multisource High-Resolution Landslide Dataset for Landslide Detection Based on Deep Learning* |
+| CAS Landslide Dataset | Xu et al. (2024), *CAS Landslide Dataset: A Large-Scale and Multisensor Dataset for Deep Learning-Based Landslide Detection* |
+| GDCLD | Fang et al. (2024), *A Globally Distributed Dataset of Coseismic Landslide Mapping via Multi-Source High-Resolution Remote Sensing Images* |
+| HR-GLDD | Meena et al. (2023), *HR-GLDD: A Globally Distributed Dataset Using Generalized Deep Learning for Rapid Landslide Mapping on High-Resolution Satellite Imagery* |
+| GVLM | Zhang et al. (2023), *Cross-Domain Landslide Mapping from Large-Scale Remote Sensing Images Using Prototype-Guided Domain-Aware Progressive Representation Learning* |
+| Landslide4Sense | Ghorbanzadeh et al. (2022), *Landslide4Sense: Reference Benchmark Data and Deep Learning Models for Landslide Detection* |
+| Bijie dataset | Ji et al. (2020), *Landslide Detection from an Open Satellite Imagery and Digital Elevation Model Dataset Using Attention Boosted Convolutional Neural Networks* |
+| RLZX dataset | Fu et al. (2025), *Records of Shallow Landslides Triggered by Extreme Rainfall in July 2024 in Zixing, China* |
+| ELNT dataset | Fu et al. (2026b), *A CNN-Transformer Hybrid Network for Efficient Cross-Region Landslide Detection by Transfer Learning* |
 
 | Stage | Full name | Main purpose | Role in LSDetector |
 |---|---|---|---|
@@ -119,7 +135,7 @@ LSDetector operationalizes the transfer-learning strategy derived from LSDSAM an
 
 The original LSDSAM three-step transfer-learning figure can be added when the source image file is available.
 
-Suggested source: **LSDSAM paper, Fig. 6, Four training paradigms for LSD and illustration of the proposed DAFT.**
+Figure source: **LSDSAM paper, Fig. 6, Four training paradigms for LSD and illustration of the proposed DAFT.**
 
 ## 6. Deployment Effects
 
@@ -131,7 +147,7 @@ The LSDFormer paper compares LSDFormer with other SOTA models on RLZX and ELNT. 
 
 ![Original LSDFormer SOTA comparison figure](docs/assets/figures/LSDformer_10pct.jpg)
 
-Suggested source: **LSDFormer paper, Fig. 6, Visualization results of LSDFormer and different SOTA models on RLZX and ELNT with DU of 10%.**
+Figure source: **LSDFormer paper, Fig. 6, Visualization results of LSDFormer and different SOTA models on RLZX and ELNT with DU of 10%.**
 
 ### 6.2 LSDSAM SOTA comparison
 
@@ -139,11 +155,11 @@ The LSDSAM paper compares LSDSAM with SOTA methods under few-shot and higher-dat
 
 ![Original LSDSAM 8-shot SOTA comparison figure](docs/assets/figures/LSDSAM_8shot.jpg)
 
-Suggested source: **LSDSAM paper, Fig. 7, Visual comparison of detection results between LSDSAM and other SOTA methods with DU set to 8-shot.**
+Figure source: **LSDSAM paper, Fig. 7, Visual comparison of detection results between LSDSAM and other SOTA methods with DU set to 8-shot.**
 
 The LSDSAM 30-percent SOTA comparison figure can be added when the original image file is available.
 
-Suggested source: **LSDSAM paper, Fig. 8, Visual comparison of detection results between LSDSAM and other SOTA methods with DU set to 30%.**
+Figure source: **LSDSAM paper, Fig. 8, Visual comparison of detection results between LSDSAM and other SOTA methods with DU set to 30%.**
 
 ### 6.3 Wuping practical deployment
 
@@ -153,7 +169,7 @@ In the LSDetector conference paper, LSDSAM-H was applied to the Wuping rainfall-
 
 ![Wuping AI-assisted refinement workflow](docs/assets/figures/refinement.jpg)
 
-Suggested source: **LSDetector conference paper, Fig. 4, Practical deployment of LSDSAM-H in the Wuping area through iterative AI-assisted refinement.**
+Figure source: **LSDetector conference paper, Fig. 4, Practical deployment of LSDSAM-H in the Wuping area through iterative AI-assisted refinement.**
 
 The Wuping result should be interpreted as a candidate inventory for expert review, not a fully verified final landslide inventory.
 

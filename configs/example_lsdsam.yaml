@@ -1,0 +1,55 @@
+input:
+  raster_path: examples/data/sample_input.tif
+  RGB_bands: "RGB_bands: 3,2,1"
+
+output:
+  dir: outputs/example_lsdsam
+  raster_options:
+    BIGTIFF: IF_SAFER
+    tiled: true
+    compress: deflate
+
+model:
+  name: lsdsam
+  checkpoint_path: weights/lsdsam_lora_placeholder.pth
+  adapter: sam_lora_legacy_adapter
+  options:
+    mode: bgr
+    edge: wavelets
+    image_size: 512
+    # sam_checkpoint_path: weights/sam_vit_b_01ec64.pth
+
+tiling:
+  tile_size: 512
+  stride: 256
+
+inference:
+  batch_size: 4
+  overwrite: true
+  threshold: 0.5
+
+postprocess:
+  min_area_pixels: 64
+  simplify_tolerance: 0.0
+  connectivity: 8
+
+vectorize:
+  formats: gpkg
+
+runtime:
+  device: cuda
+  num_workers: 8
+
+geospatial:
+  crs:
+    preserve_input: true
+    target: null
+    allow_missing: false
+  nodata:
+    input: null
+    output: 0
+    mask: true
+
+truth:
+  vector_path: null
+  mask_path: null

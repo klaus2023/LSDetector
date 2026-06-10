@@ -1,0 +1,35 @@
+training:
+  output_dir: outputs/training/lsdsam
+  stage_order:
+    - taft
+    - daft
+    - tsft
+  data:
+    train_images_dir: ${LSD_APP_DATA_DIR}/train/images
+    train_masks_dir: ${LSD_APP_DATA_DIR}/train/masks
+    val_images_dir: ${LSD_APP_DATA_DIR}/val/images
+    val_masks_dir: ${LSD_APP_DATA_DIR}/val/masks
+  model:
+    name: lsdsam
+    base_checkpoint: ${LSD_APP_CHECKPOINT_DIR}/lsdsam-base.pt
+  runtime:
+    device: cpu
+    num_workers: 0
+  stages:
+    taft:
+      training:
+        epochs: 1
+      params:
+        learning_rate: 0.0001
+    daft:
+      alignment_mode: mmd
+      training:
+        epochs: 1
+      params:
+        learning_rate: 0.00005
+    tsft:
+      alignment_mode: none
+      training:
+        epochs: 1
+      params:
+        learning_rate: 0.00002

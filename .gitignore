@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Local environment
+.DS_Store
+._*
+.env
+.env.*
+!.env.example
+
+# Model weights and checkpoints
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+*.onnx
+*.engine
+checkpoints/
+weights/
+models_save/
+
+# Data, large imagery, and geospatial artifacts
+data/
+datasets/
+raw/
+processed/
+tiles/
+mosaics/
+vectors/
+*.tif
+*.tiff
+*.vrt
+*.img
+*.jp2
+*.h5
+*.hdf5
+*.nc
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.gpkg
+*.geojson
+
+# Runtime output
+outputs/
+runs/
+logs/
+wandb/
+tensorboard/
+*.log
+
+# Keep source documentation and examples visible
+!examples/**/*.md
+!docs/**/*.md

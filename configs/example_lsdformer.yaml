@@ -1,0 +1,50 @@
+input:
+  raster_path: examples/data/sample_input.tif
+  RGB_bands: "RGB_bands: 3,2,1"
+
+output:
+  dir: outputs/example_lsdformer
+  raster_options:
+    BIGTIFF: IF_SAFER
+    tiled: true
+    compress: deflate
+
+model:
+  name: lsdformer
+  checkpoint_path: null
+  adapter: placeholder_lsdformer_adapter
+
+tiling:
+  tile_size: 512
+  stride: 384
+
+inference:
+  batch_size: 2
+  overwrite: true
+  threshold: 0.45
+
+postprocess:
+  min_area_pixels: 48
+  simplify_tolerance: 0.0
+  connectivity: 8
+
+vectorize:
+  formats: gpkg
+
+runtime:
+  device: cpu
+  num_workers: 2
+
+geospatial:
+  crs:
+    preserve_input: true
+    target: EPSG:4326
+    allow_missing: true
+  nodata:
+    input: null
+    output: 0
+    mask: true
+
+truth:
+  vector_path: null
+  mask_path: null

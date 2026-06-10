@@ -1,0 +1,28 @@
+name: lsdetector
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy=1.26.*
+  - pandas
+  - pyyaml
+  - pillow
+  - rasterio<1.5
+  - geopandas
+  - shapely
+  - pyproj
+  - pyogrio
+  - opencv<4.12
+  - pywavelets
+  - tqdm
+  - streamlit=1.37.1
+  - folium
+  - fastapi
+  - uvicorn
+  - tensorboard
+  - pytest
+  - pip:
+      - peft
+      - pytorch-adapt

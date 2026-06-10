@@ -2,43 +2,37 @@
 
 **LSDetector: An Open-Source Tool Bridging Landslide Detection Models and Real-World Deployment through Three-Stage Transfer Learning**
 
-LSDetector is a scientific landslide-detection workbench prepared for the **1st World Congress of ICGdR / ISGDR**, Hong Kong, China, 9-12 August 2026. The software is designed as the implementation, integration, and practical deployment tool for the **LSDFormer** and **LSDSAM** model families.
+<p align="justify">LSDetector is a scientific landslide-detection workbench prepared for the <strong>1st World Congress of the International Consortium on Geo-disaster Reduction (ICGdR) / International Symposium on Geo-disaster Reduction (ISGDR)</strong>, Hong Kong, China, 9-12 August 2026. The software is designed as the implementation, integration, and practical deployment tool for the <strong>LSDFormer</strong> and <strong>LSDSAM</strong> model families.</p>
 
 > **Important:** LSDetector is provided only for scientific research, academic education, conference demonstration, and non-commercial applications. Commercial use is prohibited without written permission from the authors.
 
 ## 1. Related Papers
 
-This repository is associated with three related papers.
+<p align="justify">This repository is associated with the LSDetector conference software description and two peer-reviewed model papers: one convolutional neural network (CNN)-Transformer model and one foundation-model-based landslide detection model.</p>
 
-### 1.1 LSDetector conference paper
+### 1.1 LSDetector conference software paper
 
-This project belongs to the full-paper content prepared for the first ISGDR conference:
+<p align="justify">This repository serves as the software landing page for the LSDetector full paper prepared for the first ICGdR / ISGDR World Congress:</p>
 
 > Fu, Z., Meena, S. R., Catani, F., Luo, S., & Wang, F. (2026). **LSDetector: An Open-Source Tool Bridging Landslide Detection Models and Real-World Deployment through Three-Stage Transfer Learning**. In *1st World Congress of ICGdR / ISGDR*, 9-12 August 2026, Hong Kong, China.
 
-The LSDetector conference paper presents the software architecture, registry-based model/weight/dataset management, the TAFT-DAFT-TSFT deployment workflow, model complexity analysis, and the Wuping large-area deployment case.
-
-Recommended local paper link after uploading the PDF to the repository:
-
-```text
-papers/LSDetector_ISGDR2026.pdf
-```
+<p align="justify">The LSDetector conference paper presents the software architecture, registry-based model, weight, and dataset management, the task-adaptive fine-tuning (TAFT), domain-adversarial fine-tuning (DAFT), and target-specific fine-tuning (TSFT) deployment workflow, model complexity analysis, and the Wuping large-area deployment case.</p>
 
 ### 1.2 LSDFormer model paper
 
 > Fu, Z., Wang, F., Zhong, J., Catani, F., Dou, J., You, Q., & Zhang, B. (2026). **A CNN–Transformer hybrid network for efficient cross-region landslide detection by transfer learning**. *Landslides*, 1-17. https://doi.org/10.1007/s10346-026-02733-w
 
-LSDFormer provides the lightweight CNN–Transformer landslide detection model implemented in LSDetector.
+<p align="justify">LSDFormer provides the lightweight CNN-Transformer landslide detection model implemented in LSDetector.</p>
 
 ### 1.3 LSDSAM model paper
 
 > Fu, Z., Wang, F., Tu, Z., Peng, X., Liu, G., & Catani, F. (2026). **LSDSAM: Harnessing Visual Foundation Model and Enhanced Transfer Learning Towards Practical Landslide Detection in Few-shot Scenarios**. *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. https://doi.org/10.1109/JSTARS.2026.3678141
 
-LSDSAM provides the foundation-model-based landslide detection model family and the three-step transfer-learning strategy implemented and operationalized in LSDetector.
+<p align="justify">LSDSAM provides the foundation-model-based landslide detection model family and the three-step transfer-learning strategy implemented and operationalized in LSDetector.</p>
 
 ## 2. Overview
 
-LSDetector bridges advanced landslide detection models and real-world deployment. It provides a local AI-assisted workbench for regional landslide mapping, transfer learning, inference, evaluation, and GIS-compatible inventory production.
+<p align="justify">LSDetector bridges advanced landslide detection models and real-world deployment. It provides a local artificial intelligence (AI)-assisted workbench for regional landslide mapping, transfer learning, inference, evaluation, and geographic information system (GIS)-compatible inventory production.</p>
 
 The software integrates:
 
@@ -49,13 +43,13 @@ The software integrates:
 - **Inference and vectorization** for probability rasters, binary masks, and landslide polygons;
 - **GIS-compatible export** for review and correction in ArcGIS, ArcGIS Pro, or QGIS.
 
-For large-scale landslide mapping, LSDetector follows an iterative AI-assisted refinement strategy. Users first register target imagery and available few-shot or locally corrected labels, then select LSDFormer or LSDSAM weights for sliding-window inference over the mapping area. The software exports probability rasters, binary masks, and candidate landslide polygons for GIS review. Corrected polygons are registered back as TSFT samples, allowing the model to be refined and re-applied to progressively larger or non-contiguous areas. This loop supports efficient construction of reviewable regional landslide inventories while reducing fully manual interpretation.
+<p align="justify">For large-scale landslide mapping, LSDetector follows an iterative AI-assisted refinement strategy. Users first register target imagery and available few-shot or locally corrected labels, then select LSDFormer or LSDSAM weights for sliding-window inference over the mapping area. The software exports probability rasters, binary masks, and candidate landslide polygons for GIS review. Corrected polygons are registered back as TSFT samples, allowing the model to be refined and re-applied to progressively larger or non-contiguous areas. This loop supports efficient construction of reviewable regional landslide inventories while reducing fully manual interpretation.</p>
 
 ![Wuping AI-assisted refinement workflow](docs/assets/figures/refinement.jpg)
 
 Figure source: **LSDetector conference paper, AI-assisted refinement workflow for large-area Wuping deployment.**
 
-Original software architecture figure from the LSDetector conference paper:
+<p align="justify">The software architecture figure below summarizes the LSDetector workbench and its registry-centered deployment design.</p>
 
 ![Original LSDetector software architecture figure from the ISGDR paper](docs/assets/figures/software_architecture.jpg)
 
@@ -63,9 +57,9 @@ Figure source: **LSDetector conference paper, Fig. 1, Architecture of LSDetector
 
 ## 3. Model Zoo
 
-The following table is copied from the LSDetector conference paper model complexity analysis table.
+<p align="justify">The model complexity and deployment benchmark are summarized below.</p>
 
-The benchmark was conducted on an **NVIDIA GeForce RTX 5090** using **PlanetScope satellite imagery from the Wuping, China study area** at **3 m spatial resolution**. Deployment speed was evaluated with an overlapped sliding-window inference strategy using a **256 x 256 patch size** and a **128-pixel stride**.
+<p align="justify">The benchmark was conducted on an <strong>NVIDIA GeForce RTX 5090 graphics processing unit (GPU)</strong> using <strong>PlanetScope satellite imagery from the Wuping, China study area</strong> at <strong>3 m spatial resolution</strong>. The table reports floating-point operations (FLOPs), GPU memory in gigabytes (GB), inference speed in frames per second (FPS), and regional deployment speed. Deployment speed was evaluated with an overlapped sliding-window inference strategy using a <strong>256 x 256 patch size</strong> and a <strong>128-pixel stride</strong>.</p>
 
 | Model | Input | Total params (M) | Trainable params (M) | FLOPs (G) | Training GPU memory (GB) | Inference speed (FPS) | Deployment speed (km2/s) |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -74,23 +68,23 @@ The benchmark was conducted on an **NVIDIA GeForce RTX 5090** using **PlanetScop
 | LSDSAM-L | 512 x 512 | 339.5 | 17.4 | 840.3 | 5.3-16.3 | 18.6 | 2.1 |
 | LSDSAM-H | 512 x 512 | 680.9 | 21.6 | 1704.4 | 8.4-25.0 | 11.2 | 1.6 |
 
-In LSDetector, **LSDFormer** is the lightest and fastest deployment option, while **LSDSAM-H** provides the highest-capacity model and was used for the Wuping large-area deployment demonstration.
+<p align="justify">In LSDetector, <strong>LSDFormer</strong> is the lightest and fastest deployment option, while <strong>LSDSAM-H</strong> provides the highest-capacity model and was used for the Wuping large-area deployment demonstration.</p>
 
 ## 4. Model Architectures
 
 ### 4.1 LSDFormer
 
-LSDFormer is a compact CNN–Transformer hybrid semantic segmentation network for cross-region landslide detection. It adopts a U-shaped encoder-decoder architecture, combining convolutional local feature extraction with Transformer-based global context modeling.
+<p align="justify">LSDFormer is a compact CNN-Transformer hybrid semantic segmentation network for cross-region landslide detection. It adopts a U-shaped encoder-decoder architecture, combining convolutional local feature extraction with Transformer-based global context modeling.</p>
 
 Key characteristics:
 
 - compact encoder-decoder segmentation architecture;
-- Efficient-CT block combining MobileNetV3-style convolution and efficient multi-head self-attention;
-- Enhanced-CT block using involution-based spatial attention;
+- Efficient convolution-transformer (Efficient-CT) block combining MobileNetV3-style convolution and efficient multi-head self-attention;
+- Enhanced convolution-transformer (Enhanced-CT) block using involution-based spatial attention;
 - deep supervision for multi-scale segmentation learning;
 - efficient cross-region deployment with low computational cost.
 
-Original architecture figure from the LSDFormer paper:
+<p align="justify">The architecture figure below presents the original LSDFormer model design.</p>
 
 ![Original LSDFormer architecture figure](docs/assets/figures/LSDFormer_architecture.jpg)
 
@@ -98,7 +92,7 @@ Figure source: **LSDFormer paper, Fig. 2, Model architecture of LSDFormer.**
 
 ### 4.2 LSDSAM
 
-LSDSAM adapts the Segment Anything Model (SAM) for practical landslide detection under few-shot and cross-domain conditions. It introduces landslide-specific components while retaining the transferable representation ability of visual foundation models.
+<p align="justify">LSDSAM adapts the Segment Anything Model (SAM) for practical landslide detection under few-shot and cross-domain conditions. It introduces landslide-specific components while retaining the transferable representation ability of visual foundation models.</p>
 
 Key characteristics:
 
@@ -107,9 +101,9 @@ Key characteristics:
 - task-specific branch for landslide edge and task cues;
 - CNN branch for local detail and boundary refinement;
 - multilevel cross-attention fusion and segmentation head;
-- LoRA-based parameter-efficient fine-tuning.
+- low-rank adaptation (LoRA)-based parameter-efficient fine-tuning.
 
-Original architecture figure from the LSDSAM paper:
+<p align="justify">The architecture figure below presents the original LSDSAM model design.</p>
 
 ![Original LSDSAM architecture figure](docs/assets/figures/LSDSAM_architecture.jpg)
 
@@ -117,11 +111,11 @@ Figure source: **LSDSAM paper, Fig. 2, Model architecture of the proposed LSDSAM
 
 ## 5. Three-Stage Transfer Learning
 
-LSDetector operationalizes the transfer-learning strategy derived from LSDSAM and generalizes it as a deployment workflow for both LSDFormer and LSDSAM model families.
+<p align="justify">LSDetector operationalizes the transfer-learning strategy derived from LSDSAM and generalizes it as a deployment workflow for both LSDFormer and LSDSAM model families.</p>
 
-Before target-area adaptation, LSDetector uses **Landslide77K** as the source-domain dataset for task-adaptive fine-tuning. According to the LSDetector conference paper, Landslide77K contains **more than 77,000 image-mask samples** assembled from multiple public or published landslide datasets. It covers diverse regions, sensors, spatial resolutions, landslide types, and triggering conditions, providing landslide-specific prior knowledge before DAFT and TSFT are applied to a new mapping area.
+<p align="justify">Before target-area adaptation, LSDetector uses <strong>Landslide77K</strong> as the source-domain dataset for task-adaptive fine-tuning. According to the LSDetector conference paper, Landslide77K contains <strong>more than 77,000 image-mask samples</strong> assembled from multiple public or published landslide datasets. It covers diverse regions, sensors, spatial resolutions, landslide types, and triggering conditions, providing landslide-specific prior knowledge before DAFT and TSFT are applied to a new mapping area.</p>
 
-Landslide77K integrates the following source datasets and full APA references:
+<p align="justify">Landslide77K integrates the following source datasets and full American Psychological Association (APA) references:</p>
 
 | Source dataset | APA reference |
 |---|---|
@@ -141,49 +135,45 @@ Landslide77K integrates the following source datasets and full APA references:
 | DAFT | Domain-adversarial fine-tuning | Reduce domain bias caused by sensor, resolution, illumination, land cover, and geomorphic differences | Optional target-domain adaptation using target imagery |
 | TSFT | Target-specific fine-tuning | Calibrate the model with local labels or corrected outputs | Final few-shot refinement before deployment |
 
-The original LSDSAM three-step transfer-learning figure can be added when the source image file is available.
-
-Figure source: **LSDSAM paper, Fig. 6, Four training paradigms for LSD and illustration of the proposed DAFT.**
+<p align="justify">Together, these stages separate source-domain landslide-prior learning, target-domain bias reduction, and local calibration, allowing LSDetector deployments to use prepared starting weights while still supporting target-area adaptation.</p>
 
 ## 6. Deployment Effects
 
-LSDetector is intended to convert model research into reviewable regional mapping products. The deployment visualizations should use the original SOTA comparison figures from the LSDFormer and LSDSAM papers.
+<p align="justify">LSDetector is intended to convert model research into reviewable regional mapping products. The deployment visualizations use original state-of-the-art (SOTA) comparison figures from the LSDFormer and LSDSAM papers.</p>
 
 ### 6.1 LSDFormer SOTA comparison
 
-The LSDFormer paper compares LSDFormer with other SOTA models on RLZX and ELNT. The visualization demonstrates the cross-region transfer behavior and the ability of LSDFormer to reduce missed detections and boundary errors under limited target-domain data.
+<p align="justify">The LSDFormer paper compares LSDFormer with other SOTA models on RLZX and ELNT. The visualization demonstrates the cross-region transfer behavior and the ability of LSDFormer to reduce missed detections and boundary errors under limited target-domain data.</p>
 
 ![Original LSDFormer SOTA comparison figure](docs/assets/figures/LSDformer_10pct.jpg)
 
-Figure source: **LSDFormer paper, Fig. 6, Visualization results of LSDFormer and different SOTA models on RLZX and ELNT with DU of 10%.**
+Figure source: **LSDFormer paper, Fig. 6, Visualization results of LSDFormer and different SOTA models on RLZX and ELNT with data utilization (DU) of 10%.**
 
 ### 6.2 LSDSAM SOTA comparison
 
-The LSDSAM paper compares LSDSAM with SOTA methods under few-shot and higher-data settings across four testing datasets. These figures highlight the practical few-shot advantage of LSDSAM and its boundary delineation ability.
+<p align="justify">The LSDSAM paper compares LSDSAM with SOTA methods under few-shot and higher-data settings across four testing datasets. These figures highlight the practical few-shot advantage of LSDSAM and its boundary delineation ability.</p>
 
 ![Original LSDSAM 8-shot SOTA comparison figure](docs/assets/figures/LSDSAM_8shot.jpg)
 
 Figure source: **LSDSAM paper, Fig. 7, Visual comparison of detection results between LSDSAM and other SOTA methods with DU set to 8-shot.**
 
-The LSDSAM 30-percent SOTA comparison figure can be added when the original image file is available.
-
-Figure source: **LSDSAM paper, Fig. 8, Visual comparison of detection results between LSDSAM and other SOTA methods with DU set to 30%.**
+<p align="justify">The repository displays the 8-shot comparison to document few-shot deployment behavior; higher-data comparisons are described in the LSDSAM paper.</p>
 
 ### 6.3 Wuping practical deployment
 
-In the LSDetector conference paper, LSDSAM-H was applied to the Wuping rainfall-triggered landslide area. The final deployment covered **17,295 km2** of PlanetScope imagery and produced **40,400 candidate landslide polygons** after two rounds of AI-assisted refinement.
+<p align="justify">In the LSDetector conference paper, LSDSAM-H was applied to the Wuping rainfall-triggered landslide area. The final deployment covered <strong>17,295 km2</strong> of PlanetScope imagery and produced <strong>40,400 candidate landslide polygons</strong> after two rounds of AI-assisted refinement.</p>
 
-![Original Wuping deployment figure from the LSDetector conference paper](docs/assets/figures/deploy_wuping.png)
+![Wuping practical deployment figure](docs/assets/figures/deploy_wuping.png)
 
 Figure source: **LSDetector conference paper, Fig. 4, Practical deployment of LSDSAM-H in the Wuping area through iterative AI-assisted refinement.**
 
-The Wuping result should be interpreted as a candidate inventory for expert review, not a fully verified final landslide inventory.
+<p align="justify">The Wuping result should be interpreted as a candidate inventory for expert review, not a fully verified final landslide inventory.</p>
 
 ## 7. Installation And Usage Tutorial
 
 ### 7.1 Installation
 
-A typical local installation workflow is:
+<p align="justify">A typical local installation workflow is:</p>
 
 ```bash
 git clone https://github.com/klaus2023/LSDetector.git
@@ -195,13 +185,13 @@ conda activate lsdector
 bash tools/start_lsd_app.sh
 ```
 
-Then open the local web interface:
+<p align="justify">Then open the local web interface:</p>
 
 ```text
 http://127.0.0.1:8501
 ```
 
-CLI-style access:
+<p align="justify">Command-line interface (CLI) access:</p>
 
 ```bash
 python -m lsd_app.cli.main --help
@@ -222,13 +212,13 @@ python -m lsd_app.cli.main --help
 
 | Module | Hyperparameter | Meaning |
 |---|---|---|
-| Inference | `RGB_bands` | 1-based source-band indexes used as model-visible RGB channels |
+| Inference | `RGB_bands` | 1-based source-band indexes used as model-visible red-green-blue (RGB) channels |
 | Inference | `tile_size` | Patch size for sliding-window prediction |
 | Inference | `stride` | Sliding-window step; smaller stride increases overlap and runtime |
 | Inference | `batch_size` | Number of patches per forward pass |
 | Inference | `threshold` | Probability threshold for binary landslide masks |
 | Inference | `min_area_pixels` | Removes small noisy connected regions before vector export |
-| DAFT | `alignment_mode` | Domain-alignment constraint such as IST, MMD, or CoRAL |
+| DAFT | `alignment_mode` | Domain-alignment constraint such as an LSDSAM-specific transfer constraint, maximum mean discrepancy (MMD), or correlation alignment (CORAL) |
 | DAFT | `total_epochs` | Number of domain-adaptation epochs |
 | DAFT | `initial_lr` | Initial learning rate for adaptation |
 | DAFT | `adv_lambda` | Weight of adversarial domain loss |
@@ -242,21 +232,17 @@ python -m lsd_app.cli.main --help
 
 ## 8. Acknowledgement
 
-This work was supported by the **National Science Foundation of China** under Grant No. **42230715** and No. **W2511039**.
+<p align="justify">This work was supported by the <strong>National Science Foundation of China</strong> under Grant No. <strong>42230715</strong> and No. <strong>W2511039</strong>.</p>
 
 ## 9. License
 
-LSDetector is released under the [LSDetector Academic Non-commercial License](LICENSE-NC.md). It is intended only for scientific research, academic education, conference demonstration, and other non-commercial scientific purposes. Commercial use is prohibited without written permission from the authors.
+<p align="justify">LSDetector is released under the <a href="LICENSE-NC.md">LSDetector Academic Non-commercial License</a>. It is intended only for scientific research, academic education, conference demonstration, and other non-commercial scientific purposes. Commercial use is prohibited without written permission from the authors.</p>
 
-LSDetector outputs are candidate landslide products and must be checked by qualified experts before use in hazard assessment, emergency response, engineering, policy, or public communication.
+<p align="justify">LSDetector outputs are candidate landslide products and must be checked by qualified experts before use in hazard assessment, emergency response, engineering, policy, or public communication.</p>
 
 ## 10. Citation Requirement
 
-If you use LSDetector, LSDFormer, LSDSAM, model weights, software outputs, or derived landslide products in a paper, thesis, report, benchmark, conference abstract, or other research output, you must cite the software platform and the corresponding model paper(s).
-
-**LSDetector software / ISGDR conference paper**
-
-Fu, Z., Meena, S. R., Catani, F., Luo, S., & Wang, F. (2026, August 9-12). *LSDetector: An open-source tool bridging landslide detection models and real-world deployment through three-stage transfer learning* [Conference paper]. 1st World Congress of ICGdR / ISGDR, Hong Kong, China.
+<p align="justify">If you use LSDetector, LSDFormer, LSDSAM, model weights, software outputs, or derived landslide products in a paper, thesis, report, benchmark, conference abstract, or other research output, you must cite the corresponding model paper(s).</p>
 
 **LSDFormer**
 

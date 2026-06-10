@@ -11,7 +11,7 @@ repository-code: "https://github.com/klaus2023/LSDetector"
 license: "LicenseRef-LSDetector-Academic-NonCommercial"
 references:
   - type: article
-    title: "A CNN-Transformer Hybrid Network for Efficient Cross-Region Landslide Detection by Transfer Learning"
+    title: "A CNN–Transformer hybrid network for efficient cross-region landslide detection by transfer learning"
     authors:
       - family-names: Fu
         given-names: Zijin
@@ -29,6 +29,8 @@ references:
         given-names: Bo
     journal: "Landslides"
     year: 2026
+    start: 1
+    end: 17
     doi: "10.1007/s10346-026-02733-w"
   - type: article
     title: "LSDSAM: Harnessing Visual Foundation Model and Enhanced Transfer Learning Towards Practical Landslide Detection in Few-shot Scenarios"
@@ -47,4 +49,5 @@ references:
         given-names: Filippo
     journal: "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing"
     year: 2026
+    doi: "10.1109/JSTARS.2026.3678141"
     url: "https://ieeexplore.ieee.org/abstract/document/11456795/"

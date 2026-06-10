@@ -4,7 +4,7 @@
 
 LSDetector is a scientific landslide-detection workbench prepared for the **1st World Congress of ICGdR / ISGDR**, Hong Kong, China, 9-12 August 2026. The software is designed as the implementation, integration, and practical deployment tool for the **LSDFormer** and **LSDSAM** model families.
 
-> **Important:** LSDetector is provided only for scientific research, academic education, peer review, and non-commercial applications. Commercial use is prohibited without written permission from the authors.
+> **Important:** LSDetector is provided only for scientific research, academic education, conference demonstration, and non-commercial applications. Commercial use is prohibited without written permission from the authors.
 
 > **Figure asset note:** This README is written to use the **original figures from the related papers**. Before final public release, place the original figure files at the paths referenced below, or update the paths while keeping the same figure sources.
 
@@ -28,13 +28,13 @@ papers/LSDetector_ISGDR2026.pdf
 
 ### 1.2 LSDFormer model paper
 
-> Fu, Z., Wang, F., Zhong, J., Catani, F., Dou, J., You, Q., & Zhang, B. (2026). **A CNN-Transformer Hybrid Network for Efficient Cross-Region Landslide Detection by Transfer Learning**. *Landslides*. https://doi.org/10.1007/s10346-026-02733-w
+> Fu, Z., Wang, F., Zhong, J., Catani, F., Dou, J., You, Q., & Zhang, B. (2026). **A CNN–Transformer hybrid network for efficient cross-region landslide detection by transfer learning**. *Landslides*, 1-17. https://doi.org/10.1007/s10346-026-02733-w
 
-LSDFormer provides the lightweight CNN-Transformer landslide detection model implemented in LSDetector.
+LSDFormer provides the lightweight CNN–Transformer landslide detection model implemented in LSDetector.
 
 ### 1.3 LSDSAM model paper
 
-> Fu, Z., Wang, F., Tu, Z., Peng, X., Liu, G., & Catani, F. (2026). **LSDSAM: Harnessing Visual Foundation Model and Enhanced Transfer Learning Toward Practical Landslide Detection in Few-Shot Scenarios**. *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*, 19. https://doi.org/10.1109/JSTARS.2026.3678141
+> Fu, Z., Wang, F., Tu, Z., Peng, X., Liu, G., & Catani, F. (2026). **LSDSAM: Harnessing Visual Foundation Model and Enhanced Transfer Learning Towards Practical Landslide Detection in Few-shot Scenarios**. *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. https://doi.org/10.1109/JSTARS.2026.3678141
 
 LSDSAM provides the foundation-model-based landslide detection model family and the three-step transfer-learning strategy implemented and operationalized in LSDetector.
 
@@ -44,17 +44,7 @@ This work was supported by the **National Science Foundation of China** under Gr
 
 ## 3. License
 
-LSDetector is released for **scientific research only**.
-
-Permitted uses include academic research, education, peer review, conference demonstration, and non-commercial scientific landslide-mapping studies.
-
-The following uses are **not permitted** without prior written authorization from the authors:
-
-- commercial deployment or paid landslide-detection services;
-- resale, repackaging, or closed-source commercial integration;
-- use of LSDetector, LSDFormer, LSDSAM, or their model outputs in commercial software products;
-- redistribution of model weights or datasets against their original terms;
-- removing citation, authorship, funding, or non-commercial-use notices.
+LSDetector is released under the [LSDetector Academic Non-commercial License](LICENSE-NC.md). It is intended only for scientific research, academic education, conference demonstration, and other non-commercial scientific purposes. Commercial use is prohibited without written permission from the authors.
 
 LSDetector outputs are candidate landslide products and must be checked by qualified experts before use in hazard assessment, emergency response, engineering, policy, or public communication.
 
@@ -94,7 +84,7 @@ In LSDetector, **LSDFormer** is the lightest and fastest deployment option, whil
 
 ### 6.1 LSDFormer
 
-LSDFormer is a compact CNN-Transformer hybrid semantic segmentation network for cross-region landslide detection. It adopts a U-shaped encoder-decoder architecture, combining convolutional local feature extraction with Transformer-based global context modeling.
+LSDFormer is a compact CNN–Transformer hybrid semantic segmentation network for cross-region landslide detection. It adopts a U-shaped encoder-decoder architecture, combining convolutional local feature extraction with Transformer-based global context modeling.
 
 Key characteristics:
 
@@ -259,11 +249,14 @@ Use the LSDetector citation when referring to the software platform:
 
 Use the LSDFormer citation when using LSDFormer or its weights:
 
+> Fu, Z., Wang, F., Zhong, J., Catani, F., Dou, J., You, Q., & Zhang, B. (2026). **A CNN–Transformer hybrid network for efficient cross-region landslide detection by transfer learning**. *Landslides*, 1-17.
+
 ```bibtex
 @article{fuCNNTransformerHybrid2026,
-  title = {A CNN-Transformer Hybrid Network for Efficient Cross-Region Landslide Detection by Transfer Learning},
+  title = {A {CNN--Transformer} hybrid network for efficient cross-region landslide detection by transfer learning},
   author = {Fu, Zijin and Wang, Fawu and Zhong, Junfei and Catani, Filippo and Dou, Jie and You, Qi and Zhang, Bo},
   journal = {Landslides},
+  pages = {1--17},
   year = {2026},
   doi = {10.1007/s10346-026-02733-w}
 }
@@ -271,12 +264,13 @@ Use the LSDFormer citation when using LSDFormer or its weights:
 
 Use the LSDSAM citation when using LSDSAM-B, LSDSAM-L, LSDSAM-H, SAM-derived adapters, or the three-stage LSDSAM transfer-learning framework:
 
+> Fu, Z., Wang, F., Tu, Z., Peng, X., Liu, G., & Catani, F. (2026). **LSDSAM: Harnessing Visual Foundation Model and Enhanced Transfer Learning Towards Practical Landslide Detection in Few-shot Scenarios**. *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*.
+
 ```bibtex
 @article{fuLSDSAMHarnessingVisual2026,
-  title = {LSDSAM: Harnessing Visual Foundation Model and Enhanced Transfer Learning Toward Practical Landslide Detection in Few-Shot Scenarios},
+  title = {{LSDSAM}: Harnessing Visual Foundation Model and Enhanced Transfer Learning Towards Practical Landslide Detection in Few-shot Scenarios},
   author = {Fu, Zijin and Wang, Fawu and Tu, Zihan and Peng, Xingliang and Liu, Guanting and Catani, Filippo},
   journal = {IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing},
-  volume = {19},
   year = {2026},
   doi = {10.1109/JSTARS.2026.3678141}
 }

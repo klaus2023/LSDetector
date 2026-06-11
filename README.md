@@ -223,14 +223,29 @@ Figure source: **LSDetector conference paper, Fig. 4, Practical deployment of LS
 
 ### 7.1 Installation
 
-<p align="justify">A typical local installation workflow is:</p>
+<p align="justify">A typical local installation workflow on a GPU workstation is:</p>
 
 ```bash
 git clone https://github.com/klaus2023/LSDetector.git
 cd LSDetector
 
 conda env create -f environment.yml
-conda activate lsdector
+conda activate lsdetector
+
+python -m pip install --upgrade pip
+python -m pip install -e ".[web,geospatial,lsdsam,training,dev]"
+
+bash tools/start_lsd_app.sh
+```
+
+<p align="justify">On macOS or other CPU-only machines, create the lightweight environment instead:</p>
+
+```bash
+conda env create -f environment-macos-cpu.yml
+conda activate lsdetector
+
+python -m pip install --upgrade pip
+python -m pip install -e ".[web,geospatial,lsdsam,training,dev]"
 
 bash tools/start_lsd_app.sh
 ```

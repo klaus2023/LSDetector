@@ -1,0 +1,63 @@
+[build-system]
+requires = []
+build-backend = "build_backend"
+backend-path = ["."]
+
+[project]
+name = "lsdetector"
+version = "0.1.0"
+description = "Open-source engineering skeleton for landslide detection with LSDFormer and LSDSAM."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE-NC.md" }
+authors = [
+  { name = "LSDetector contributors" }
+]
+keywords = ["landslide", "remote-sensing", "segmentation", "sam", "transformer"]
+dependencies = [
+  "PyYAML>=6.0"
+]
+
+[project.optional-dependencies]
+training = [
+  "torch",
+  "peft",
+  "numpy>=1.26,<2",
+  "tqdm",
+  "tensorboard",
+  "pytorch-adapt"
+]
+lsdsam = [
+  "torch",
+  "peft",
+  "numpy>=1.26,<2",
+  "rasterio<1.5",
+  "opencv-python<4.12",
+  "PyWavelets"
+]
+geospatial = [
+  "numpy>=1.26,<2",
+  "rasterio<1.5",
+  "geopandas",
+  "shapely",
+  "opencv-python<4.12",
+  "PyWavelets"
+]
+web = [
+  "streamlit==1.37.1",
+  "fastapi",
+  "uvicorn",
+  "folium>=0.15"
+]
+dev = [
+  "pytest"
+]
+
+[project.scripts]
+lsd = "lsd_app.cli.main:main"
+
+[tool.setuptools.packages.find]
+include = ["lsd_app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

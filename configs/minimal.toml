@@ -1,0 +1,6 @@
+project_root = "."
+output_root = "outputs"
+model = "lsdsam"
+
+[data]
+note = "Point this to a small public sample dataset in the first MVP."

@@ -262,7 +262,64 @@ http://127.0.0.1:8501
 python -m lsd_app.cli.main --help
 ```
 
-### 7.2 Basic usage workflow
+### 7.2 Data And Weight Registration
+
+<p align="justify">LSDetector does not store large datasets or trained checkpoint files in Git. Download the release assets separately, extract them outside the Git clone, and register them into the local LSDetector registry.</p>
+
+| Asset | Download | Access code | Approximate size | Required for |
+|---|---|---|---|---|
+| TAFT weights | [Baidu Netdisk](https://pan.baidu.com/s/1kQ9OvEmdRZXQdV54VxmnOg?pwd=3x8g) | `3x8g` | about 4.4 GB | TSFT, inference, and optional DAFT initialization |
+| Landslide77K raw TAFT dataset | [Baidu Netdisk](https://pan.baidu.com/s/1vlnqJZ-v9Lp_Piv2l4FpeQ?pwd=w8v9) | `w8v9` | 66.66 GB compressed; actual standardized registration needs about 95 GB of additional free disk space | Optional; needed only when running DAFT |
+
+<p align="justify">After extraction, arrange the release assets as follows:</p>
+
+```text
+LSDetector_data_weights_v1/
+  weights/
+    LSDFormer_LS77K.pth
+    LSDSAM_H_LS77K.pth
+    LSDSAM_L_77K.pth
+    LSDSAM_B_71K.pth
+  Landslide77K/              # Optional; extracted from Landslide77K_raw.zip
+```
+
+<p align="justify">Register the four TAFT weights first. This is enough for TSFT and inference:</p>
+
+```bash
+python tools/register_release_assets.py \
+  --assets-root /path/to/LSDetector_data_weights_v1
+```
+
+<p align="justify">Register the TAFT dataset only if you plan to run DAFT. The default actual registration mode standardizes and copies the full Landslide77K tree into <code>registry/dataset_store</code>:</p>
+
+```bash
+python tools/register_release_assets.py \
+  --assets-root /path/to/LSDetector_data_weights_v1 \
+  --skip-weights \
+  --register-taft \
+  --force-rebuild
+```
+
+<p align="justify">For a lightweight metadata-only TAFT registration, add <code>--no-standardize</code>. This mode does not copy imagery or labels; the extracted <code>Landslide77K/</code> folder must remain at the registered path. Add <code>--dry-run</code> first if you want to validate paths and sample counts without writing the registry.</p>
+
+```bash
+python tools/register_release_assets.py \
+  --assets-root /path/to/LSDetector_data_weights_v1 \
+  --skip-weights \
+  --register-taft \
+  --no-standardize
+```
+
+<p align="justify">TAFT dataset registration creates two dataset views: <code>taft-landslide77k</code> and <code>taft-landslide71k</code>. These TAFT datasets are optional source-domain assets for DAFT; TSFT and inference do not require them.</p>
+
+### 7.3 Software Operation Manuals
+
+<p align="justify">For detailed operation instructions, use the dedicated manuals:</p>
+
+- [Web GUI parameter reference](docs/web_gui_reference.md)
+- [CLI usage guide](docs/cli_usage.md)
+
+### 7.4 Basic usage workflow
 
 1. **Register models** in the Model Repository: choose LSDFormer, LSDSAM-B, LSDSAM-L, or LSDSAM-H.
 2. **Register weights** in the Weight Repository: TAFT, DAFT, TSFT, or inference-ready checkpoints.
@@ -273,7 +330,7 @@ python -m lsd_app.cli.main --help
 7. **Review in GIS** using ArcGIS, ArcGIS Pro, QGIS, or equivalent software.
 8. **Iteratively refine** by correcting predictions, registering corrected samples, and re-running TSFT and inference.
 
-### 7.3 Key hyperparameters
+### 7.5 Key hyperparameters
 
 | Module | Hyperparameter | Meaning |
 |---|---|---|

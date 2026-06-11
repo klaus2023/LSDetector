@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 DIST_NAME = "lsd_app"
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 PREFIX = f"{DIST_NAME}-{VERSION}"
 EXCLUDE_DIRS = {
     ".git",

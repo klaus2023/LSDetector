@@ -258,6 +258,10 @@ bash tools/start_lsd_app.sh
 http://127.0.0.1:8501
 ```
 
+![Software home interface visualization](docs/assets/figures/interface.png)
+
+<p align="center"><strong>Software home interface visualization.</strong></p>
+
 <p align="justify">Command-line interface (CLI) access:</p>
 
 ```bash

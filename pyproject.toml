@@ -5,7 +5,7 @@ backend-path = ["."]
 
 [project]
 name = "lsdetector"
-version = "0.1.0"
+version = "0.1.1"
 description = "Open-source engineering skeleton for landslide detection with LSDFormer and LSDSAM."
 readme = "README.md"
 requires-python = ">=3.10"

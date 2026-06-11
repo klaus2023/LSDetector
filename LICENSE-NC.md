@@ -19,10 +19,14 @@ Any publication, thesis, report, benchmark, derivative model, or software result
 - Fu, Z., Wang, F., Zhong, J., Catani, F., Dou, J., You, Q., & Zhang, B. (2026). A CNN–Transformer hybrid network for efficient cross-region landslide detection by transfer learning. Landslides, 1-17.
 - Fu, Z., Wang, F., Tu, Z., Peng, X., Liu, G., & Catani, F. (2026). LSDSAM: Harnessing Visual Foundation Model and Enhanced Transfer Learning Towards Practical Landslide Detection in Few-shot Scenarios. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing.
 
-## 4. No Warranty
+## 4. Third-party Components
+
+Some LSDSAM model components are adapted from Meta's Segment Anything project and related Meta research code. Copyright and license notices from those upstream files are preserved in the corresponding source files. These third-party components remain subject to their original upstream licenses, including the Apache License 2.0 where applicable. This LSDetector Academic Non-commercial License applies to LSDetector-specific code, documentation, packaging, workflows, and project-specific modifications, and does not remove or replace third-party copyright or license notices.
+
+## 5. No Warranty
 
 The software and documentation are provided "as is", without warranty of any kind. Landslide detection outputs are candidate products and must be checked by qualified experts before use in hazard assessment, emergency response, policy, engineering, or public communication.
 
-## 5. Permission For Commercial Use
+## 6. Permission For Commercial Use
 
 For commercial licensing or collaboration, contact the authors and obtain explicit written permission before use.

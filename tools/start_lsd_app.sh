@@ -65,4 +65,9 @@ exec "$CONDA_BIN" run --no-capture-output -n "$ENV_NAME" env LD_LIBRARY_PATH="$L
   streamlit run "$APP_ROOT/lsd_app/web/app.py" \
   --server.address "$ADDRESS" \
   --server.port "$PORT" \
-  --server.headless true
+  --server.headless true \
+  --theme.base light \
+  --theme.primaryColor "#e5484d" \
+  --theme.backgroundColor "#f5f7fb" \
+  --theme.secondaryBackgroundColor "#ffffff" \
+  --theme.textColor "#111827"

@@ -43,4 +43,12 @@ if ($EnvNames -contains $EnvName) {
 Write-Host "[LSDetector] Starting Streamlit on ${Address}:${Port}"
 Set-Location $AppRoot
 $env:PYTHONPATH = "$AppRoot" + $(if ($env:PYTHONPATH) { ";$env:PYTHONPATH" } else { "" })
-& $CondaPath run --no-capture-output -n $EnvName streamlit run "$AppRoot\lsd_app\web\app.py" --server.address $Address --server.port $Port --server.headless true
+& $CondaPath run --no-capture-output -n $EnvName streamlit run "$AppRoot\lsd_app\web\app.py" `
+    --server.address $Address `
+    --server.port $Port `
+    --server.headless true `
+    --theme.base light `
+    --theme.primaryColor "#e5484d" `
+    --theme.backgroundColor "#f5f7fb" `
+    --theme.secondaryBackgroundColor "#ffffff" `
+    --theme.textColor "#111827"

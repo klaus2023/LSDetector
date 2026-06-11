@@ -3129,6 +3129,7 @@ def main() -> None:
           --lsd-primary-dark: #c93238;
           --lsd-accent: #0f766e;
           --lsd-radius: 8px;
+          color-scheme: light;
         }
         .stApp {
           background: transparent;
@@ -3141,6 +3142,58 @@ def main() -> None:
         body {
           background: var(--lsd-bg);
           overflow: hidden;
+          color: var(--lsd-text);
+          color-scheme: light;
+        }
+        [data-testid="stAppViewContainer"],
+        [data-testid="stMain"],
+        .block-container {
+          color: var(--lsd-text);
+          color-scheme: light;
+        }
+        .stApp p,
+        .stApp label,
+        .stApp [data-testid="stWidgetLabel"],
+        .stApp [data-testid="stWidgetLabel"] p,
+        .stApp [data-testid="stMarkdownContainer"],
+        .stApp [data-testid="stMarkdownContainer"] p {
+          color: var(--lsd-text);
+        }
+        .stApp [data-testid="stCaptionContainer"],
+        .stApp [data-testid="stCaptionContainer"] p,
+        .stApp [data-testid="stCaptionContainer"] span {
+          color: var(--lsd-muted);
+        }
+        .stApp input,
+        .stApp textarea,
+        .stApp [data-baseweb="input"] input,
+        .stApp [data-baseweb="textarea"] textarea,
+        .stApp [data-baseweb="select"] > div {
+          background-color: rgba(255, 255, 255, 0.76) !important;
+          color: var(--lsd-text) !important;
+        }
+        .stApp [data-baseweb="select"] span,
+        .stApp [data-baseweb="select"] svg {
+          color: var(--lsd-text) !important;
+          fill: var(--lsd-text) !important;
+        }
+        div[data-baseweb="popover"],
+        div[data-baseweb="popover"] * {
+          color-scheme: light;
+        }
+        div[data-baseweb="popover"] [role="listbox"],
+        div[data-baseweb="popover"] [role="option"] {
+          background: #ffffff !important;
+          color: var(--lsd-text) !important;
+        }
+        div[data-testid="stButton"] > button,
+        div[data-testid="stDownloadButton"] > button {
+          background: #ffffff;
+          color: var(--lsd-text);
+        }
+        button[kind="primary"],
+        div[data-testid="stButton"] > button[kind="primary"] {
+          color: #ffffff !important;
         }
         body::before {
           content: "";
@@ -3177,6 +3230,16 @@ def main() -> None:
         section[data-testid="stSidebar"] {
           background: #ffffff;
           border-right: 1px solid var(--lsd-border);
+          color: var(--lsd-text);
+          color-scheme: light;
+        }
+        section[data-testid="stSidebar"] label,
+        section[data-testid="stSidebar"] label p,
+        section[data-testid="stSidebar"] span,
+        section[data-testid="stSidebar"] p,
+        section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"],
+        section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
+          color: var(--lsd-text) !important;
         }
         section[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
           gap: 0.9rem;
@@ -3208,6 +3271,7 @@ def main() -> None:
           font-size: 1.08rem;
           line-height: 1.25;
           text-align: center;
+          color: var(--lsd-text) !important;
         }
         section[data-testid="stSidebar"] div[role="radiogroup"] label:hover {
           background: #f3f5f9;
@@ -3219,9 +3283,17 @@ def main() -> None:
           color: var(--lsd-primary-dark);
           font-weight: 650;
         }
+        section[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked) p,
+        section[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked) span {
+          color: var(--lsd-primary-dark) !important;
+        }
         section[data-testid="stSidebar"] div[data-testid="stCaptionContainer"] {
-          color: var(--lsd-muted);
+          color: var(--lsd-muted) !important;
           line-height: 1.45;
+        }
+        section[data-testid="stSidebar"] div[data-testid="stCaptionContainer"] p,
+        section[data-testid="stSidebar"] div[data-testid="stCaptionContainer"] span {
+          color: var(--lsd-muted) !important;
         }
         .block-container {
           padding-top: 2.2rem;

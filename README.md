@@ -187,6 +187,8 @@ Figure source: **LSDSAM paper, Fig. 2, Model architecture of the proposed LSDSAM
 
 <p align="justify">Together, these stages separate source-domain landslide-prior learning, target-domain bias reduction, and local calibration, allowing LSDetector deployments to use prepared starting weights while still supporting target-area adaptation.</p>
 
+<p align="justify">LSDetector also provides a <strong>Landslide71K</strong> source-domain variant that excludes the RLZX and ELNT subsets from Landslide77K. This variant is used as the TAFT pretraining dataset for the LSDSAM-B release weight.</p>
+
 ## 6. Deployment Effects
 
 <p align="justify">LSDetector is intended to convert model research into reviewable regional mapping products. The deployment visualizations use original state-of-the-art (SOTA) comparison figures from the LSDFormer and LSDSAM papers.</p>

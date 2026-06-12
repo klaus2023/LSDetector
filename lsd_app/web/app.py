@@ -139,6 +139,40 @@ MODEL_REPOSITORY_HIDDEN_COLUMNS = frozenset(
     }
 )
 LSD_FORMER_DISPLAY_DESCRIPTION = "Lightweight design for fast deployment"
+MODEL_REPOSITORY_BENCHMARK_COLUMNS: dict[str, dict[str, str]] = {
+    "LSDFormer": {
+        "Input": "256 x 256",
+        "Params (M)": "37.7",
+        "Trainable (M)": "7.9",
+        "FLOPs (G)": "19.6",
+        "GPU mem. (GB)": "1.0-2.9",
+        "Infer. FPS": "46.4",
+    },
+    "LSDSAM-B": {
+        "Input": "512 x 512",
+        "Params (M)": "110.1",
+        "Trainable (M)": "13.5",
+        "FLOPs (G)": "261.6",
+        "GPU mem. (GB)": "2.6-8.4",
+        "Infer. FPS": "26.1",
+    },
+    "LSDSAM-L": {
+        "Input": "512 x 512",
+        "Params (M)": "339.5",
+        "Trainable (M)": "17.4",
+        "FLOPs (G)": "840.3",
+        "GPU mem. (GB)": "5.3-16.3",
+        "Infer. FPS": "18.6",
+    },
+    "LSDSAM-H": {
+        "Input": "512 x 512",
+        "Params (M)": "680.9",
+        "Trainable (M)": "21.6",
+        "FLOPs (G)": "1704.4",
+        "GPU mem. (GB)": "8.4-25.0",
+        "Infer. FPS": "11.2",
+    },
+}
 RUNNABLE_ERRORS = (
     ConfigError,
     RasterError,
@@ -4898,6 +4932,14 @@ def _model_repository_table(rows: list[Mapping[str, Any]]) -> list[dict[str, Any
         model_id = str(row.get("model_id") or row.get("name") or "").strip()
         if model_id == "LSDFormer":
             item["description"] = LSD_FORMER_DISPLAY_DESCRIPTION
+        benchmark = MODEL_REPOSITORY_BENCHMARK_COLUMNS.get(model_id, {})
+        if benchmark:
+            ordered_item: dict[str, Any] = {}
+            for key, value in item.items():
+                ordered_item[key] = value
+                if key == "model_id":
+                    ordered_item.update(benchmark)
+            item = ordered_item
         table.append(item)
     return table
 

@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 DIST_NAME = "lsd_app"
-VERSION = "0.1.1"
+VERSION = "0.1.2"
 PREFIX = f"{DIST_NAME}-{VERSION}"
 EXCLUDE_DIRS = {
     ".git",
@@ -24,7 +24,6 @@ EXCLUDE_DIRS = {
     "outputs",
     "preprocess",
     "LSDSAM_finetune",
-    "data",
     "datasets",
     "raw",
     "processed",
@@ -39,17 +38,6 @@ EXCLUDE_DIRS = {
 EXCLUDE_PREFIXES = ("._", ".__")
 EXCLUDE_SUFFIXES = (".pyc", ".pyo")
 EXCLUDE_NAMES = {
-    "prompt0.md",
-    "prompt1.md",
-    "prompt2.md",
-    "prompt3.md",
-    "prompt4.md",
-    "prompt5.md",
-    "prompt6.md",
-    "prompt7.md",
-    "prompt8.md",
-    "prompt9.md",
-    "prompt10.md",
     "Progress.md",
 }
 PACKAGE_DIRS = ["lsd_app", "tests", "configs", "examples", "docs"]
@@ -136,6 +124,9 @@ def _iter_wheel_files():
 
 
 def _should_skip(path: Path) -> bool:
+    rel = path.relative_to(ROOT)
+    if len(rel.parts) == 1 and rel.parts[0] == "data":
+        return True
     name = path.name
     if name in EXCLUDE_DIRS or name in EXCLUDE_NAMES:
         return True

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Start LSDetector
+Comment=Launch the LSDetector web app
+Exec=bash -lc "p=\"${1#file://}\"; cd \"$(dirname \"$p\")\" && exec bash Start_LSDetector.sh" launcher %k
+Terminal=true
+Categories=Science;Education;
+StartupNotify=false

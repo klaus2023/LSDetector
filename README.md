@@ -238,16 +238,39 @@ python -m pip install --upgrade pip
 python -m pip install ".[web,geospatial,lsdsam,training,dev]"
 ```
 
-<p align="justify">On Linux and macOS, start the app from a shell:</p>
+<p align="justify">For the first launch after installation, start the app from the project root with the command for your platform:</p>
+
+<p align="justify">Linux, WSL, and macOS:</p>
 
 ```bash
 bash tools/start_lsd_app.sh
 ```
 
-<p align="justify">On Windows, start the app from PowerShell after the same environment and package installation steps:</p>
+<p align="justify">Windows native Conda installation:</p>
 
 ```powershell
 .\tools\start_lsd_app.ps1
+```
+
+<p align="justify">After the installation has completed once, the second and later launches do not need to repeat the package installation commands. Use one of the shortcut launchers in the project root:</p>
+
+| System | Terminal command from the project root | Click launcher |
+| --- | --- | --- |
+| Linux desktop | `bash Start_LSDetector.sh` | Double-click `Start_LSDetector.desktop`, then allow it to launch if your file manager asks. |
+| WSL on Windows | `bash Start_LSDetector.sh` | Use the WSL terminal command. A Windows desktop shortcut must point to your own WSL distro name and project path. |
+| macOS | `./Start_LSDetector.command` | Double-click `Start_LSDetector.command` in Finder. |
+| Windows native Conda | `.\Start_LSDetector.bat` | Double-click `Start_LSDetector.bat` in File Explorer. |
+
+<p align="justify">The root shortcut files call the existing launch scripts in <code>tools/</code> and reuse the <code>lsdetector</code> Conda environment. If the environment does not exist, the launch script will try to create it from <code>environment.yml</code>, but the first-time installation commands above are still recommended before using the shortcuts. On macOS or Linux, if a downloaded archive does not preserve executable permissions, run:</p>
+
+```bash
+chmod +x Start_LSDetector.sh Start_LSDetector.command Start_LSDetector.desktop
+```
+
+<p align="justify">Windows plus WSL should be treated as a Linux/WSL setup. Run the Linux shortcut inside the WSL terminal. The <code>Start_LSDetector.bat</code> file is intended for a Windows-native Conda installation. If you want a Windows desktop shortcut for a WSL copy, make the shortcut target point to your WSL distribution and project path, for example:</p>
+
+```bat
+wsl -d Ubuntu-22.04 bash -lc "cd /home/<linux-user>/path/to/LSDetector && bash Start_LSDetector.sh"
 ```
 
 <p align="justify">The recommended cross-platform installation pattern is a hybrid Conda plus pip workflow: Conda creates a compact Python runtime, and pip installs LSDetector together with the web, geospatial, LSDSAM, training, and development extras from prebuilt wheels. Use the non-editable pip install command shown above; editable mode is not required for release or source-archive testing and may fail with build backends that do not support PEP 660.</p>

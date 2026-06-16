@@ -225,32 +225,44 @@ Figure source: **LSDetector conference paper, Fig. 4, Practical deployment of LS
 
 ### 7.1 Installation
 
-<p align="justify">A typical local installation workflow on a GPU workstation is:</p>
+<p align="justify">A typical cross-platform installation workflow on Linux, macOS, or Windows is:</p>
 
 ```bash
 git clone https://github.com/klaus2023/LSDetector.git
 cd LSDetector
 
+conda create -n lsdetector -c conda-forge python=3.11 pip "numpy=1.26.*" pandas pyyaml pillow tqdm streamlit=1.37.1 folium fastapi uvicorn tensorboard pytest
+conda activate lsdetector
+
+python -m pip install --upgrade pip
+python -m pip install ".[web,geospatial,lsdsam,training,dev]"
+```
+
+<p align="justify">On Linux and macOS, start the app from a shell:</p>
+
+```bash
+bash tools/start_lsd_app.sh
+```
+
+<p align="justify">On Windows, start the app from PowerShell after the same environment and package installation steps:</p>
+
+```powershell
+.\tools\start_lsd_app.ps1
+```
+
+<p align="justify">The recommended cross-platform installation pattern is a hybrid Conda plus pip workflow: Conda creates a compact Python runtime, and pip installs LSDetector together with the web, geospatial, LSDSAM, training, and development extras from prebuilt wheels. Use the non-editable pip install command shown above; editable mode is not required for release or source-archive testing and may fail with build backends that do not support PEP 660.</p>
+
+<p align="justify">If you prefer to create the full Conda environment from the provided environment file, use the same non-editable pip install command after environment creation:</p>
+
+```bash
 conda env create -f environment.yml
 conda activate lsdetector
 
 python -m pip install --upgrade pip
-python -m pip install -e ".[web,geospatial,lsdsam,training,dev]"
-
-bash tools/start_lsd_app.sh
+python -m pip install ".[web,geospatial,lsdsam,training,dev]"
 ```
 
-<p align="justify">On macOS or other CPU-only machines, create the lightweight environment instead:</p>
-
-```bash
-conda env create -f environment-macos-cpu.yml
-conda activate lsdetector
-
-python -m pip install --upgrade pip
-python -m pip install -e ".[web,geospatial,lsdsam,training,dev]"
-
-bash tools/start_lsd_app.sh
-```
+<p align="justify">If you need a platform-specific PyTorch build, especially for CUDA-enabled training or inference on a GPU workstation, install the appropriate PyTorch package for your CUDA, macOS, or Windows setup before running the final <code>python -m pip install ".[web,geospatial,lsdsam,training,dev]"</code> command.</p>
 
 <p align="justify">Then open the local web interface:</p>
 

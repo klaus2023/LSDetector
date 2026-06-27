@@ -187,8 +187,6 @@ Figure source: **LSDSAM paper, Fig. 2, Model architecture of the proposed LSDSAM
 
 <p align="justify">Together, these stages separate source-domain landslide-prior learning, target-domain bias reduction, and local calibration, allowing LSDetector deployments to use prepared starting weights while still supporting target-area adaptation.</p>
 
-<p align="justify">LSDetector also provides a <strong>Landslide71K</strong> source-domain variant that excludes the RLZX and ELNT subsets from Landslide77K. This variant is used as the TAFT pretraining dataset for the LSDSAM-B release weight.</p>
-
 ## 6. Deployment Effects
 
 <p align="justify">LSDetector is intended to convert model research into reviewable regional mapping products. The deployment visualizations use original state-of-the-art (SOTA) comparison figures from the LSDFormer and LSDSAM papers.</p>
@@ -320,7 +318,7 @@ LSDetector_data_weights_v1/
     LSDFormer_LS77K.pth
     LSDSAM_H_LS77K.pth
     LSDSAM_L_77K.pth
-    LSDSAM_B_71K.pth
+    LSDSAM_B_77K.pth
   Landslide77K/              # Optional; extracted from Landslide77K_raw.zip
 ```
 
@@ -351,7 +349,7 @@ python tools/register_release_assets.py \
   --no-standardize
 ```
 
-<p align="justify">TAFT dataset registration creates two dataset views: <code>taft-landslide77k</code> and <code>taft-landslide71k</code>. These TAFT datasets are optional source-domain assets for DAFT; TSFT and inference do not require them.</p>
+<p align="justify">TAFT dataset registration creates one source-domain dataset entry: <code>taft-landslide77k</code>. This TAFT dataset is an optional source-domain asset for DAFT; TSFT and inference do not require it.</p>
 
 ### 7.3 Software Operation Manuals
 

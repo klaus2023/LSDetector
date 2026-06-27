@@ -196,7 +196,7 @@ LSDetector_release_assets/
     LSDFormer_LS77K.pth
     LSDSAM_H_LS77K.pth
     LSDSAM_L_77K.pth
-    LSDSAM_B_71K.pth
+    LSDSAM_B_77K.pth
   Landslide77K/
 ```
 

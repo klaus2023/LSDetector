@@ -8,12 +8,12 @@ Expected unpacked layout:
         LSDFormer_LS77K.pth
         LSDSAM_H_LS77K.pth
         LSDSAM_L_77K.pth
-        LSDSAM_B_71K.pth
+        LSDSAM_B_77K.pth
       Landslide77K/                 # optional, from Landslide77K_raw.zip
 
 The script registers the four TAFT weights by default. Add --register-taft
-when you also want to register the optional Landslide77K/Landslide71K TAFT
-repository for DAFT training.
+when you also want to register the optional Landslide77K TAFT repository for
+DAFT training.
 
 TAFT registration modes:
   * Default actual registration: when --register-taft is used without
@@ -40,16 +40,14 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from lsd_app.core.paths import portable_path  # noqa: E402
 from lsd_app.data.repository import DatasetStandardizationError, discover_taft_tree  # noqa: E402
-from lsd_app.registry import RegistryError, list_datasets, list_weights, register_taft_tree, register_weight  # noqa: E402
+from lsd_app.registry import list_datasets, list_weights, register_taft_tree, register_weight  # noqa: E402
 
 WEIGHT_FILENAMES = {
     "LSDFormer_LS77K": "LSDFormer_LS77K.pth",
     "LSDSAM_H_LS77K": "LSDSAM_H_LS77K.pth",
     "LSDSAM_L_77K": "LSDSAM_L_77K.pth",
-    "LSDSAM_B_71K": "LSDSAM_B_71K.pth",
+    "LSDSAM_B_77K": "LSDSAM_B_77K.pth",
 }
-
-LANDSLIDE71K_EXCLUDED_SUBSETS = {"ELNT", "LRSTTC", "RLZX__SAT", "RLZX__UAV"}
 
 
 @dataclass(frozen=True)
@@ -133,17 +131,17 @@ WEIGHT_SPECS = (
         target_modules="image_encoder.blocks.*.(attn.qkv|attn.proj|mlp.lin1|mlp.lin2)",
     ),
     WeightSpec(
-        weight_id="LSDSAM_B_71K",
-        filename="LSDSAM_B_71K.pth",
+        weight_id="LSDSAM_B_77K",
+        filename="LSDSAM_B_77K.pth",
         model_id="LSDSAM-B",
-        version="LS71K",
+        version="LS77K",
         weight_type="checkpoint",
-        adapter_profile="lsdsam-b-taft-ls71k-peft-lora-r32-edge4-after512-cf-mh",
+        adapter_profile="lsdsam-b-taft-ls77k-peft-lora-r32-edge4-after512-cf-mh",
         adapter_name="lsdsam-fewshot",
         image_size=512,
         input_mode="rgb_wavelets",
         channel_rule="RGB + wavelets",
-        metrics_summary="TAFT Landslide71K release checkpoint.",
+        metrics_summary="TAFT Landslide77K release checkpoint.",
         notes="Release TAFT weight downloaded from LSDetector_data_weights_v1/weights.",
         lora_base_r=32,
         lora_base_alpha=64,
@@ -324,7 +322,6 @@ def _register_taft(registry_root: Path, taft_root: Path, *, standardize: bool, f
     )
     _normalize_landslide77k_dataset_id(registry_root)
     print(f"Registered taft-landslide77k: {result.sample_count} samples, standardized={standardize}.")
-    _register_landslide71k_reference(registry_root)
 
 
 def _normalize_landslide77k_dataset_id(registry_root: Path) -> None:
@@ -361,111 +358,12 @@ def _normalize_landslide77k_dataset_id(registry_root: Path) -> None:
     _write_json(datasets_path, normalized)
 
 
-def _register_landslide71k_reference(registry_root: Path) -> None:
-    workspace = registry_root.resolve()
-    root = _registry_dir(workspace)
-    source_manifest_path = root / "dataset_store" / "TAFT" / "Landslide77K" / "manifest.json"
-    if not source_manifest_path.exists():
-        raise RegistryError(f"Cannot create Landslide71K reference; missing source manifest: {source_manifest_path}")
-    source_manifest = _read_json(source_manifest_path, {})
-    source_subsets = source_manifest.get("subsets") if isinstance(source_manifest, Mapping) else None
-    if not isinstance(source_subsets, list):
-        raise RegistryError(f"Landslide77K manifest has no subset list: {source_manifest_path}")
-    kept_subsets = [
-        dict(row)
-        for row in source_subsets
-        if isinstance(row, Mapping) and str(row.get("subset_id") or "") not in LANDSLIDE71K_EXCLUDED_SUBSETS
-    ]
-    target_root = root / "dataset_store" / "TAFT" / "Landslide71K"
-    target_manifest_path = target_root / "manifest.json"
-    sample_count = sum(int(row.get("sample_count") or 0) for row in kept_subsets)
-    train_count = sum(int(row.get("train_count") or 0) for row in kept_subsets)
-    test_count = sum(int(row.get("test_count") or 0) for row in kept_subsets)
-    created_at = str(source_manifest.get("created_at") or source_manifest.get("updated_at") or "")
-    manifest = {
-        "dataset_id": "taft-landslide71k",
-        "dataset_class": "TAFT",
-        "dataset_type": "TAFT",
-        "name": "Landslide71K",
-        "version": "Landslide71K",
-        "root_dir": portable_path(target_root, workspace_root=workspace),
-        "manifest_path": portable_path(target_manifest_path, workspace_root=workspace),
-        "source": "Derived reference view from Landslide77K release asset",
-        "source_root": source_manifest.get("source_root", ""),
-        "source_imagery_path": source_manifest.get("source_imagery_path", ""),
-        "source_label_path": source_manifest.get("source_label_path", ""),
-        "derived_from": "taft-landslide77k",
-        "reference_only": True,
-        "excluded_subsets": sorted(LANDSLIDE71K_EXCLUDED_SUBSETS),
-        "standardized": bool(source_manifest.get("standardized", False)),
-        "split_policy": source_manifest.get("split_policy", "preserve"),
-        "has_gt": True,
-        "RGB_bands": "mixed",
-        "sample_shape_layout": source_manifest.get("sample_shape_layout", "(H, W, C)"),
-        "sample_dtype": source_manifest.get("sample_dtype", "source_dtype"),
-        "sample_count": sample_count,
-        "train_count": train_count,
-        "test_count": test_count,
-        "subset_count": len(kept_subsets),
-        "subsets": kept_subsets,
-        "created_at": created_at,
-        "updated_at": created_at,
-        "notes": "Reference-only Landslide71K view derived by excluding four Landslide77K subsets.",
-        "description": "Reference-only Landslide71K view derived by excluding four Landslide77K subsets.",
-    }
-    _write_json(target_manifest_path, manifest)
-
-    datasets_path = root / "datasets.json"
-    rows = _read_json(datasets_path, [])
-    rows = [
-        row
-        for row in rows
-        if not (
-            isinstance(row, Mapping)
-            and (str(row.get("dataset_id") or "").lower() == "taft-landslide71k" or row.get("version") == "Landslide71K")
-        )
-    ]
-    rows.append(
-        {
-            "dataset_id": "taft-landslide71k",
-            "name": "Landslide71K",
-            "dataset_class": "TAFT",
-            "imagery_path": portable_path(target_root, workspace_root=workspace),
-            "label_path": portable_path(target_root, workspace_root=workspace),
-            "has_gt": True,
-            "RGB_bands": "mixed",
-            "RGB_bands_class": "MIXED",
-            "tile_schema": "standardized-tree:(H, W, C)",
-            "source": "Derived reference view from Landslide77K release asset",
-            "created_at": created_at,
-            "notes": "Reference-only Landslide71K view derived by excluding four Landslide77K subsets.",
-            "description": "Reference-only Landslide71K view derived by excluding four Landslide77K subsets.",
-            "dataset_type": "TAFT",
-            "truth_path": portable_path(target_root, workspace_root=workspace),
-            "version": "Landslide71K",
-            "repository_path": portable_path(target_root, workspace_root=workspace),
-            "manifest_path": portable_path(target_manifest_path, workspace_root=workspace),
-            "sample_shape_layout": manifest["sample_shape_layout"],
-            "sample_dtype": manifest["sample_dtype"],
-            "sample_count": sample_count,
-            "train_count": train_count,
-            "test_count": test_count,
-            "subset_count": len(kept_subsets),
-            "reference_only": True,
-            "derived_from": "taft-landslide77k",
-            "excluded_subsets": sorted(LANDSLIDE71K_EXCLUDED_SUBSETS),
-        }
-    )
-    _write_json(datasets_path, rows)
-    print(f"Registered reference dataset taft-landslide71k: {sample_count} samples, {len(kept_subsets)} subsets.")
-
-
 def main(argv: list[str] | None = None) -> int:
     class _HelpFormatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
         pass
 
     parser = argparse.ArgumentParser(
-        description="Register LSDetector release weights and optional Landslide77K/Landslide71K TAFT datasets.",
+        description="Register LSDetector release weights and the optional Landslide77K TAFT dataset.",
         epilog="""TAFT registration modes:
   actual copy: use --register-taft without --no-standardize; the full TAFT tree is copied/standardized into registry/dataset_store.
   lightweight: add --no-standardize; only manifests and source_root metadata are written, so the extracted Landslide77K folder must remain available.
@@ -485,7 +383,7 @@ Examples:
     parser.add_argument("--weights-dir", help="Directory containing the four release .pth files. Overrides --assets-root/weights.")
     parser.add_argument("--taft-root", help="Extracted Landslide77K folder. Overrides --assets-root/Landslide77K.")
     parser.add_argument("--skip-weights", action="store_true", help="Do not register the four TAFT weights.")
-    parser.add_argument("--register-taft", action="store_true", help="Also register Landslide77K and Landslide71K TAFT datasets. By default this performs actual copied/standardized storage unless --no-standardize is set.")
+    parser.add_argument("--register-taft", action="store_true", help="Also register the Landslide77K TAFT dataset. By default this performs actual copied/standardized storage unless --no-standardize is set.")
     parser.add_argument("--no-standardize", action="store_true", help="Lightweight TAFT registration: write manifests/source_root only and do not copy image/label files into registry/dataset_store. Keep the extracted Landslide77K folder available.")
     parser.add_argument("--force-rebuild", action="store_true", help="Delete and rebuild the target TAFT registry version before registration.")
     parser.add_argument("--dry-run", action="store_true", help="Validate inputs and print planned actions without writing registry files.")

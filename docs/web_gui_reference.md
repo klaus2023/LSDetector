@@ -286,7 +286,7 @@ DAFT means domain-adversarial fine-tuning. It uses a labeled source dataset and 
 | --- | --- | --- |
 | `model` | Training model architecture. | Must match the selected base weight `model_id`. |
 | `base weight` | Starting checkpoint. | Usually a TAFT weight, or a same-model DAFT/TSFT weight. |
-| `source dataset` | Labeled source dataset. | Usually `taft-landslide77k`, `taft-landslide71k`, or another labeled TAFT/TSFT dataset. |
+| `source dataset` | Labeled source dataset. | Usually `taft-landslide77k` or another labeled TAFT/TSFT dataset. |
 | `target dataset` | Target-domain dataset. | Usually a DAFT dataset. |
 | `Constraint` | Domain alignment constraint. | Options are provided by the training backend, such as `IST`, `MMD`, `CORAL`, or `none`. |
 | `Evaluation Dataset` | Optional validation/evaluation dataset. | If none is selected, the latest checkpoint is registered. If selected, evaluation mIoU is used to choose the best checkpoint. |

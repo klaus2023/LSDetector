@@ -14,7 +14,7 @@
 
 <p align="justify">This repository serves as the software landing page for the LSDetector full paper prepared for the first ICGdR / ISGDR World Congress:</p>
 
-> Fu, Z., Meena, S. R., Catani, F., Luo, S., & Wang, F. (2026). **LSDetector: An Open-Source Tool Bridging Landslide Detection Models and Real-World Deployment through Three-Stage Transfer Learning**. In *1st World Congress of ICGdR / ISGDR*, 9-12 August 2026, Hong Kong, China.
+> Fu, Z., Wang, F., Meena, S. R., Luo, S., & Catani, F. (2026). **LSDetector: An Open-Source Tool Bridging Landslide Detection Models and Practical Deployment through Three-Stage Transfer Learning**. In *1st World Congress of ICGdR*, 9-12 August 2026, Hong Kong, China.
 
 <p align="justify">The LSDetector conference paper presents the software architecture, registry-based model, weight, and dataset management, the task-adaptive fine-tuning (TAFT), domain-adversarial fine-tuning (DAFT), and target-specific fine-tuning (TSFT) deployment workflow, model complexity analysis, and the Wuping large-area deployment case.</p>
 

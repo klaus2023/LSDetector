@@ -2,7 +2,7 @@
 
 **LSDetector: An Open-Source Tool Bridging Landslide Detection Models and Real-World Deployment through Three-Stage Transfer Learning**
 
-<p align="justify">LSDetector is a scientific landslide-detection workbench prepared for the <strong>1st World Congress of the International Consortium on Geo-disaster Reduction (ICGdR) / International Symposium on Geo-disaster Reduction (ISGDR)</strong>, Hong Kong, China, 9-12 August 2026. The software is designed as the implementation, integration, and practical deployment tool for the <strong>LSDFormer</strong> and <strong>LSDSAM</strong> model families.</p>
+<p align="justify">LSDetector is a scientific landslide-detection workbench designed for rapid post-disaster landslide inventory mapping and regional landslide surveys. It provides an AI-assisted workflow for large-area landslide mapping, from model-assisted detection to practical review and deployment. The software is designed as the implementation, integration, and practical deployment tool for the <strong>LSDFormer</strong> and <strong>LSDSAM</strong> model families.</p>
 
 > **Important:** LSDetector is provided only for scientific research, academic education, conference demonstration, and non-commercial applications. Commercial use is prohibited without written permission from the authors.
 
@@ -265,7 +265,7 @@ bash tools/start_lsd_app.sh
 chmod +x Start_LSDetector.sh Start_LSDetector.command Start_LSDetector.desktop
 ```
 
-<p align="justify">Windows plus WSL should be treated as a Linux/WSL setup. Run the Linux shortcut inside the WSL terminal. The <code>Start_LSDetector.bat</code> file is intended for a Windows-native Conda installation. If you want a Windows desktop shortcut for a WSL copy, make the shortcut target point to your WSL distribution and project path, for example:</p>
+<p align="justify">Windows plus WSL should be treated as a Linux/WSL setup. Run the Linux shortcut inside the WSL terminal. The <code>Start_LSDetector.bat</code> file is intended for a Windows-native Conda installation. If you want a Windows desktop shortcut for a WSL copy, make the shortcut target point to your own WSL distribution and project path, for example:</p>
 
 ```bat
 wsl -d Ubuntu-22.04 bash -lc "cd /home/<linux-user>/path/to/LSDetector && bash Start_LSDetector.sh"

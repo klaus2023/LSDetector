@@ -391,17 +391,13 @@ python tools/register_release_assets.py \
 | TSFT | `lora_task_alpha` | LoRA scaling factor |
 | TSFT | `lora_dropout` | Dropout rate in LoRA adaptation |
 
-## 8. Acknowledgement
-
-<p align="justify">This work was supported by the <strong>National Science Foundation of China</strong> under Grant No. <strong>42230715</strong> and No. <strong>W2511039</strong>.</p>
-
-## 9. License
+## 8. License
 
 <p align="justify">LSDetector is released under the <a href="LICENSE-NC.md">LSDetector Academic Non-commercial License</a>. It is intended only for scientific research, academic education, conference demonstration, and other non-commercial scientific purposes. Commercial use is prohibited without written permission from the authors.</p>
 
 <p align="justify">LSDetector outputs are candidate landslide products and must be checked by qualified experts before use in hazard assessment, emergency response, engineering, policy, or public communication.</p>
 
-## 10. Citation Requirement
+## 9. Citation Requirement
 
 <p align="justify">If you use LSDetector, LSDFormer, LSDSAM, model weights, software outputs, or derived landslide products in a paper, thesis, report, benchmark, conference abstract, or other research output, you must cite the corresponding model paper(s).</p>
 

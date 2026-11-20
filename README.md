@@ -307,7 +307,7 @@ python -m lsd_app.cli.main --help
 
 | Asset | Download | Access code | Approximate size | Required for |
 |---|---|---|---|---|
-| TAFT weights | [Baidu Netdisk](https://pan.baidu.com/s/1kQ9OvEmdRZXQdV54VxmnOg?pwd=3x8g) | `3x8g` | about 4.4 GB | TSFT, inference, and optional DAFT initialization |
+| TAFT weights | [Baidu Netdisk](https://pan.baidu.com/s/1kQ9OvEmdRZXQdV54VxmnOg?pwd=3x8g) / [Hugging Face](https://huggingface.co/ZijinFu/lsdetector-weights) | Baidu: `3x8g`; Hugging Face: no code | 4.675 GB | TSFT, inference, and optional DAFT initialization |
 | Landslide77K raw TAFT dataset | [Baidu Netdisk](https://pan.baidu.com/s/1vlnqJZ-v9Lp_Piv2l4FpeQ?pwd=w8v9) | `w8v9` | 66.66 GB compressed; actual standardized registration needs about 95 GB of additional free disk space | Optional; needed only when running DAFT |
 
 <p align="justify">After extraction, arrange the release assets as follows:</p>
